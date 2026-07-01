@@ -82,7 +82,7 @@ export const Gallery: React.FC = () => {
             key={item.id}
             onClick={() => setSelectedItem(item)}
             whileHover={{ scale: 1.03, y: -4 }}
-            className="group relative h-60 rounded-[20px] overflow-hidden border border-white/5 bg-zinc-900 cursor-pointer shadow-lg transition-all duration-300"
+            className="group relative h-60 rounded-[22px] overflow-hidden border border-white/5 glass-card cursor-pointer shadow-lg transition-all duration-300"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img

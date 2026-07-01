@@ -110,10 +110,10 @@ export default function Contact() {
         <div className="relative">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 drop-shadow-[0_0_20px_rgba(168,85,247,0.25)]">Contact Us</span>
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 drop-shadow-[0_0_20px_rgba(168,85,247,0.25)]">Contact</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-              Have questions about events or need assistance? We're here to help!
+              Have questions about E-Cell or want to collaborate? We're here to help!
             </p>
           </div>
         </div>
@@ -181,9 +181,9 @@ export default function Contact() {
                 className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500/50"
               >
                 <option className="bg-gray-900" value="">Select a subject</option>
-                <option className="bg-gray-900" value="event-inquiry">Event Inquiry</option>
-                <option className="bg-gray-900" value="registration-help">Registration Help</option>
-                <option className="bg-gray-900" value="payment-issue">Payment Issue</option>
+                <option className="bg-gray-900" value="membership-inquiry">Membership Inquiry</option>
+                <option className="bg-gray-900" value="collaboration">Collaboration Opportunity</option>
+                <option className="bg-gray-900" value="mentorship">Mentorship Request</option>
                 <option className="bg-gray-900" value="technical-support">Technical Support</option>
                 <option className="bg-gray-900" value="feedback">Feedback</option>
                 <option className="bg-gray-900" value="other">Other</option>
@@ -242,7 +242,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-white">Email</h3>
-                  <p className="text-gray-300">shiva.cloudray0303@gmail.com
+                  <p className="text-gray-300">crewunited.ecellpec@gmail.com
+                    <br />
+                    shiva.cloudray0303@gmail.com
                     <br />
                     professorrohithkumar@gmail.com
                   </p>
@@ -285,21 +287,21 @@ export default function Contact() {
             <h2 className="text-2xl font-bold text-white mb-6">Quick Help</h2>
             <div className="space-y-4">
               <div>
-                <h3 className="font-semibold text-white mb-2">Event Registration Issues?</h3>
+                <h3 className="font-semibold text-white mb-2">Want to join our team?</h3>
                 <p className="text-gray-300 text-sm">
-                  Check your email for confirmation or contact us with your registration details.
+                  Check our Directory section for open positions or contact us about membership opportunities.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-white mb-2">Payment Problems?</h3>
+                <h3 className="font-semibold text-white mb-2">Looking for collaboration?</h3>
                 <p className="text-gray-300 text-sm">
-                  Include your transaction ID and event details when contacting support.
+                  Reach out to discuss potential partnerships, event collaborations, or mentorship programs.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-white mb-2">Technical Support?</h3>
+                <h3 className="font-semibold text-white mb-2">Need technical support?</h3>
                 <p className="text-gray-300 text-sm">
-                  Describe the issue you're facing and include your browser information.
+                  Describe the issue you're facing with our website or member portal and we'll help you out.
                 </p>
               </div>
             </div>
@@ -316,30 +318,30 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
-            <h3 className="text-lg font-semibold text-white mb-3">How do I register for an event?</h3>
+            <h3 className="text-lg font-semibold text-white mb-3">How can I join E-Cell?</h3>
             <p className="text-gray-300">
-              Browse events, click on the event you want to attend, fill in your details, and complete the payment process.
+              We recruit members at the beginning of each academic year. Check our Updates section or contact us for current openings.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
-            <h3 className="text-lg font-semibold text-white mb-3">Can I get a refund if I can't attend?</h3>
+            <h3 className="text-lg font-semibold text-white mb-3">What domains can I join?</h3>
             <p className="text-gray-300">
-              Refund policies vary by event. Check the event details or contact us for specific refund information.
+              We have departments for Web & Technology, Marketing & PR, Creative & Design, Event Management, and more.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
-            <h3 className="text-lg font-semibold text-white mb-3">How do I access my tickets?</h3>
+            <h3 className="text-lg font-semibold text-white mb-3">Can I collaborate with E-Cell?</h3>
             <p className="text-gray-300">
-              After successful registration, you'll receive an email with your ticket. You can also view it in the "My Tickets" section.
+              Yes! We welcome collaborations with other clubs, startups, and organizations. Reach out to discuss partnership opportunities.
             </p>
           </div>
 
           <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl">
-            <h3 className="text-lg font-semibold text-white mb-3">What payment methods are accepted?</h3>
+            <h3 className="text-lg font-semibold text-white mb-3">How can I get mentorship?</h3>
             <p className="text-gray-300">
-              We accept all major credit/debit cards, UPI, net banking, and digital wallets through our secure payment gateway.
+              Our leadership team and alumni provide mentorship to aspiring entrepreneurs. Contact us to schedule a mentorship session.
             </p>
           </div>
         </div>

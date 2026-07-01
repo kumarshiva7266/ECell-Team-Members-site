@@ -113,6 +113,7 @@ const NAV_LINKS = [
   { tab: "Journey",     label: "Journey"    },
   { tab: "Gallery",     label: "Gallery"    },
   { tab: "Updates",     label: "Updates"    },
+  { tab: "Contact",     label: "Contact"    },
 ];
 
 /* ════════════════════════════════════════
@@ -275,11 +276,20 @@ export default function HomePage() {
           </ul>
 
           <div className="hidden lg:flex items-center gap-2">
-            {!userProfile ? (
+            {userProfile?.isAdmin && (
+              <button onClick={() => { setActiveTab("Admin"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="liquid-crystal-btn cursor-pointer">
+                Admin
+              </button>
+            )}
+            {userProfile ? (
+              <button onClick={() => { setActiveTab("Profile"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="liquid-crystal-btn cursor-pointer bg-gradient-to-r from-emerald-500/20 to-teal-600/20 border-emerald-500/30 text-emerald-400">
+                Profile
+              </button>
+            ) : (
               <button onClick={() => setAuthModalOpen(true)} className="liquid-crystal-btn cursor-pointer">
                 Login / Sign Up
               </button>
-            ) : null}
+            )}
           </div>
 
           <button onClick={() => setMobileNav(p => !p)} className="lg:hidden liquid-crystal-btn cursor-pointer text-zinc-400">
@@ -315,7 +325,16 @@ export default function HomePage() {
                   </button>
                 ))}
                 
-                {!userProfile && (
+                {userProfile?.isAdmin && (
+                  <button onClick={() => { setActiveTab("Admin"); setMobileNav(false); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-left px-4 py-3 text-sm rounded-xl transition-all text-red-400 font-bold hover:bg-white/5 border border-red-500/20 bg-red-500/10 mt-2">
+                    Admin
+                  </button>
+                )}
+                {userProfile ? (
+                  <button onClick={() => { setActiveTab("Profile"); setMobileNav(false); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-left px-4 py-3 text-sm rounded-xl transition-all text-emerald-400 font-bold hover:bg-white/5 border border-emerald-500/20 bg-emerald-500/10 mt-2">
+                    Profile
+                  </button>
+                ) : (
                   <button onClick={() => { setAuthModalOpen(true); setMobileNav(false); }} className="text-left px-4 py-3 text-sm rounded-xl transition-all text-white font-bold hover:bg-white/5 border border-white/10 mt-2">
                     Login / Sign Up
                   </button>
@@ -702,33 +721,40 @@ export default function HomePage() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {leadershipMembers.map((m) => (
-                    <GlassCard key={m.id} onClick={() => openModal(m)}>
-                      <div className="p-6 flex flex-col items-center text-center">
-                        <div className="relative w-28 h-28 mb-5">
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-30 blur-[8px] animate-pulse" />
-                          <div className="relative w-full h-full rounded-full overflow-hidden ring-2 ring-white/10 bg-zinc-900">
+                  {leadershipMembers
+                    .filter(m => ['Rohith', 'Shiv', 'Anshu', 'Maheswar'].some(name => m.name.includes(name)))
+                    .map((m) => (
+                    <GlassCard key={m.id} onClick={() => openModal(m)} className="border-amber-500/20 hover:border-amber-500/40 shadow-2xl shadow-amber-500/10">
+                      <div className="p-6 flex flex-col items-center text-center relative overflow-hidden">
+                        {/* Premium gradient background */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 via-purple-500/5 to-blue-500/5 opacity-50" />
+                        
+                        <div className="relative w-32 h-32 mb-5">
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-400 via-purple-500 to-blue-500 opacity-40 blur-[12px] animate-pulse" />
+                          <div className="relative w-full h-full rounded-full overflow-hidden ring-4 ring-gradient-to-r from-amber-500/30 to-purple-500/30 bg-zinc-900 shadow-2xl">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img src={m.img} alt={m.name} className="w-full h-full object-cover" />
                           </div>
-                          <div className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-zinc-900" />
+                          <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 border-2 border-zinc-900 shadow-lg" />
+                          {/* Crown icon for premium feel */}
+                          <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-amber-400 text-lg">👑</div>
                         </div>
 
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full mb-3">
+                        <span className="relative text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-gradient-to-r from-amber-500/20 to-purple-500/20 border border-amber-500/30 px-3 py-1 rounded-full mb-3 shadow-lg shadow-amber-500/20">
                           {m.role}
                         </span>
-                        <h3 className="text-lg font-bold text-white mb-1">{m.name}</h3>
-                        <p className="text-xs text-zinc-500 font-mono mb-1">{m.dept}</p>
-                        <p className="text-xs text-zinc-600 mb-4">{m.year}</p>
-                        <p className="text-xs text-zinc-400 leading-relaxed mb-5 line-clamp-3">{m.about}</p>
+                        <h3 className="relative text-xl font-bold text-white mb-1 tracking-tight">{m.name}</h3>
+                        <p className="relative text-xs text-zinc-400 font-mono mb-1">{m.dept}</p>
+                        <p className="relative text-xs text-zinc-500 mb-4">{m.year}</p>
+                        <p className="relative text-xs text-zinc-400 leading-relaxed mb-5 line-clamp-3">{m.about}</p>
 
-                        <div className="flex flex-wrap gap-1.5 justify-center mb-5">
+                        <div className="relative flex flex-wrap gap-1.5 justify-center mb-5">
                           {m.skills.slice(0, 2).map((s, idx) => (
-                            <span key={idx} className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.07] text-zinc-500">{s}</span>
+                            <span key={idx} className="text-[10px] px-2 py-0.5 rounded-full bg-gradient-to-r from-amber-500/10 to-purple-500/10 border border-amber-500/20 text-amber-300">{s}</span>
                           ))}
                         </div>
 
-                        <button className="glass-button border-white/5 hover:border-white/20 text-xs font-semibold px-4 py-2 rounded-full text-zinc-400 hover:text-white transition-all cursor-pointer w-full">
+                        <button className="relative glass-button bg-gradient-to-r from-amber-500/20 to-purple-500/20 border-amber-500/30 hover:border-amber-500/50 text-xs font-semibold px-4 py-2 rounded-full text-white transition-all cursor-pointer w-full shadow-lg shadow-amber-500/20">
                           View Profile →
                         </button>
                       </div>
@@ -950,34 +976,20 @@ export default function HomePage() {
                     Stay <span className="text-gradient">Updated</span>
                   </h2>
                 </div>
-                <div className="glass-card rounded-[22px] overflow-hidden">
-                  <table className="w-full">
-                    <thead>
-                      <tr className="border-b border-white/10">
-                        <th className="text-left px-6 py-4 text-sm font-semibold text-zinc-400">Date</th>
-                        <th className="text-left px-6 py-4 text-sm font-semibold text-zinc-400">Title</th>
-                        <th className="text-left px-6 py-4 text-sm font-semibold text-zinc-400">Content</th>
-                        <th className="text-left px-6 py-4 text-sm font-semibold text-zinc-400">Author</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {updates.map((update) => (
-                        <tr key={update.id} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                          <td className="px-6 py-4 text-sm text-zinc-300">{update.date}</td>
-                          <td className="px-6 py-4 text-sm font-semibold text-white">{update.title}</td>
-                          <td className="px-6 py-4 text-sm text-zinc-400 max-w-md">{update.content}</td>
-                          <td className="px-6 py-4 text-sm text-zinc-400">{update.author}</td>
-                        </tr>
-                      ))}
-                      {updates.length === 0 && (
-                        <tr>
-                          <td colSpan={4} className="px-6 py-12 text-center text-zinc-500">
-                            No updates yet. Check back later!
-                          </td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </table>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {updates.map((update) => (
+                    <div key={update.id} className="glass-card rounded-[22px] p-6 hover:scale-105 transition-transform duration-300">
+                      <div className="text-xs text-cyan-400 font-mono mb-2">{update.date}</div>
+                      <h3 className="text-lg font-bold text-white mb-3">{update.title}</h3>
+                      <p className="text-sm text-zinc-400 mb-4 line-clamp-3">{update.content}</p>
+                      <div className="text-xs text-zinc-500">By {update.author}</div>
+                    </div>
+                  ))}
+                  {updates.length === 0 && (
+                    <div className="col-span-full glass-card rounded-[22px] p-12 text-center">
+                      <div className="text-zinc-500">No updates yet. Check back later!</div>
+                    </div>
+                  )}
                 </div>
               </section>
             )}
