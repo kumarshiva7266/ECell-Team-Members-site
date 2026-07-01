@@ -438,14 +438,33 @@ export default function HomePage() {
                     {/* Personalized Greeting */}
                     {userProfile && (
                       <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="absolute -top-16 left-0 glass-panel border-white/10 px-4 py-2 rounded-full text-sm text-zinc-300 flex items-center gap-2"
+                        className="absolute -top-24 left-0 flex flex-col items-start gap-2"
                       >
-                        <span className="text-xl">👋</span>
-                        <span className="font-medium">Hi, {userProfile.name}!</span>
-                        <span className="text-zinc-500">Welcome to E-Cell</span>
+                        <div className="flex items-center gap-3">
+                          <span className="text-3xl">👋</span>
+                          <motion.span 
+                            className="text-4xl font-bold bg-gradient-to-r from-slate-300 via-slate-400 to-slate-500 bg-clip-text text-transparent cursor-pointer"
+                            style={{ textShadow: "0 0 30px rgba(148, 163, 184, 0.5)" }}
+                            whileHover={{ 
+                              scale: 1.1,
+                              textShadow: "0 0 40px rgba(148, 163, 184, 0.8)",
+                              transition: { duration: 0.3 }
+                            }}
+                          >
+                            Hi, {userProfile.name}!
+                          </motion.span>
+                        </div>
+                        <motion.p 
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 0.3, duration: 0.6 }}
+                          className="text-sm text-zinc-400 font-medium"
+                        >
+                          Welcome to E-Cell Crew United
+                        </motion.p>
                       </motion.div>
                     )}
 
@@ -732,20 +751,20 @@ export default function HomePage() {
                 </section>
 
                 {/* New Section - Testimonials Preview */}
-                <section className="py-24 relative z-10 border-t border-white/[0.04]">
+                <section className="py-16 relative z-10 border-t border-white/[0.04]">
                   <div className="max-w-6xl mx-auto px-4 md:px-6">
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8 }}
-                      className="text-center mb-16"
+                      className="text-center mb-10"
                     >
-                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-400 mb-4 block font-mono">Testimonials</span>
-                      <h2 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] mb-6">
+                      <span className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-400 mb-3 block font-mono">Testimonials</span>
+                      <h2 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.03em] mb-4">
                         What People <span className="text-gradient">Say</span>
                       </h2>
-                      <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
+                      <p className="text-sm md:text-base text-zinc-400 max-w-2xl mx-auto">
                         Hear from our team members and partners about their experience with E-Cell.
                       </p>
                     </motion.div>
@@ -755,7 +774,7 @@ export default function HomePage() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.8 }}
-                      className="glass-card rounded-[22px] p-8 md:p-12"
+                      className="glass-card rounded-[22px] p-6 md:p-8"
                     >
                       <Testimonials />
                     </motion.div>
@@ -1187,13 +1206,13 @@ export default function HomePage() {
       {/* ══════════════════════════════
           FOOTER
       ══════════════════════════════ */}
-      <footer className="border-t border-white/[0.05] py-12 relative z-10 bg-[#020205]">
+      <footer className="border-t border-white/[0.05] py-12 relative z-10 backdrop-blur-xl bg-black/30">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           {activeTab === "Home" && (
             <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
               <div className="md:col-span-2">
                 <div className="flex items-center gap-2.5 mb-4">
-                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden">
+                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden shadow-lg shadow-purple-500/30">
                     <Zap className="w-4 h-4 text-white absolute inset-0 m-auto" />
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -1203,19 +1222,21 @@ export default function HomePage() {
                       className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 bg-[#020205]"
                     />
                   </div>
-                  <span className="font-bold text-xl text-white">E-Cell Crew United</span>
+                  <span className="font-bold text-xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" style={{ textShadow: "0 0 30px rgba(168, 85, 247, 0.5)" }}>
+                    E-Cell Crew United
+                  </span>
                 </div>
-                <p className="text-sm text-zinc-500 leading-relaxed max-w-xs mb-6">
+                <p className="text-sm text-zinc-400 leading-relaxed max-w-xs mb-6">
                   Empowering students to think, build, and lead. We foster the entrepreneurial spirit across every department.
                 </p>
               </div>
 
               <div>
-                <h4 className="text-sm font-bold text-zinc-300 mb-4">Directory Views</h4>
+                <h4 className="text-sm font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4" style={{ textShadow: "0 0 20px rgba(168, 85, 247, 0.3)" }}>Directory Views</h4>
                 <div className="flex flex-col gap-2.5">
                   {NAV_LINKS.slice(0, 4).map(l => (
                     <button key={l.tab} onClick={() => { setActiveTab(l.tab); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                      className="text-left text-sm text-zinc-500 hover:text-white transition-colors cursor-pointer">
+                      className="text-left text-sm text-zinc-400 hover:text-white transition-colors cursor-pointer hover:shadow-lg hover:shadow-purple-500/20 px-2 py-1 rounded-lg hover:bg-white/5">
                       {l.label}
                     </button>
                   ))}
@@ -1223,20 +1244,20 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h4 className="text-sm font-bold text-zinc-300 mb-4">Contact Info</h4>
+                <h4 className="text-sm font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4" style={{ textShadow: "0 0 20px rgba(236, 72, 153, 0.3)" }}>Contact Info</h4>
                 <div className="flex flex-col gap-2.5">
-                  <a href="mailto:ecell@college.ac.in" className="text-sm text-zinc-500 hover:text-white transition-colors">ecell@college.ac.in</a>
-                  <a href="tel:+911234567890" className="text-sm text-zinc-500 hover:text-white transition-colors">+91 12345 67890</a>
-                  <p className="text-sm text-zinc-600">Campus Block-C, Room 204</p>
+                  <a href="mailto:ecell@college.ac.in" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">ecell@college.ac.in</a>
+                  <a href="tel:+911234567890" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">+91 12345 67890</a>
+                  <p className="text-sm text-zinc-500 px-2 py-1">Campus Block-C, Room 204</p>
                 </div>
               </div>
             </div>
           )}
 
           <div className={`flex items-center justify-between flex-wrap gap-4 ${activeTab === "Home" ? "pt-8 border-t border-white/[0.04]" : ""}`}>
-            <p className="text-xs text-zinc-600">&copy; 2026 E-Cell Crew United. All rights reserved.</p>
-            <div className="flex items-center gap-2 text-xs text-zinc-600 font-mono">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <p className="text-xs text-zinc-500">&copy; 2026 E-Cell Crew United. All rights reserved.</p>
+            <div className="flex items-center gap-2 text-xs text-zinc-500 font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-lg shadow-emerald-500/50" />
               All systems operational
             </div>
           </div>
