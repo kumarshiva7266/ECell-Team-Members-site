@@ -31,7 +31,7 @@ const TESTIMONIALS: Testimonial[] = [
     id: "3",
     name: "Anshu Kumar",
     role: "Advisory Committee Member, CSE",
-    img: "/images/anshu.png",
+    img: "/images/anshu.jpeg",
     quote: "Directing E-Cell frameworks, advising core leaders on growth, and managing long-term venture alignments. Providing strategic advisory support to all E-Cell verticals and leadership team."
   },
   {
@@ -45,42 +45,42 @@ const TESTIMONIALS: Testimonial[] = [
     id: "5",
     name: "Trisha Mewade",
     role: "Secretary & Treasurer, Data Science",
-    img: "/images/trisha.JPEG",
+    img: "/images/trisha.jpeg",
     quote: "Managing documentation, maintaining official records, and supporting financial record-keeping to ensure smooth team operations. As a Data Science student, I bring technology and innovation to every aspect of my role."
   },
   {
     id: "6",
     name: "B. Lavanya",
     role: "Vice-President (Operations), CSE",
-    img: "/images/lavanya.JPEG",
+    img: "/images/lavanya.jpeg",
     quote: "Optimizing internal workflow loops, scheduling resources, and managing cross-domain deliveries. Streamlining project reporting timelines across all six E-Cell sub-domains and coordinating between different teams to ensure seamless operational efficiency."
   },
   {
     id: "7",
     name: "Paisa Goutham Krishna Reddy",
     role: "Vice President, Cyber Security",
-    img: "/images/gautam.JPEG",
+    img: "/images/gautam.jpeg",
     quote: "As the Vice President of the E-Cell, I work closely with the leadership team to promote entrepreneurship, innovation, and student-led initiatives across the campus. I contribute to planning and executing impactful events, building strategic collaborations, and creating opportunities that inspire students to transform their ideas into successful ventures."
   },
   {
     id: "8",
     name: "Ruchika Marshetty",
     role: "Marketing & PR Head, CSE-CS",
-    img: "/images/ruchika.JPEG",
+    img: "/images/ruchika.jpeg",
     quote: "Hello, myself Ruchika Marshetty the Marketing & PR Head. As the Marketing & PR Head, I manage promotions, create awareness about events and initiatives, and handle public relations. I work on communicating with audiences, building a positive image, and increasing engagement through effective marketing and outreach."
   },
   {
     id: "9",
     name: "Kushi Kumari",
     role: "Creative & Design Coordinator, Design Dept",
-    img: "/images/khusi.JPEG",
+    img: "/images/logo.jpeg",
     quote: "Crafting beautiful interactive designs, layouts, and typography grids for all E-Cell assets. Creating visual identities for events, campaigns, and digital platforms while maintaining brand consistency."
   },
   {
     id: "10",
     name: "Khwaish Modi",
     role: "Event Management Head, CSE(DS)",
-    img: "/images/khwaish.JPEG",
+    img: "/images/khwaish.jpeg",
     quote: "Managing planning loops, vendor alignments, and overall logistics for campus startup conclaves. Leading event planning and coordination for hackathons, conclaves, and workshops to ensure flawless execution."
   },
   {
@@ -101,7 +101,7 @@ const TESTIMONIALS: Testimonial[] = [
     id: "13",
     name: "Boddupelli Bala Murali",
     role: "Web & Technology Team Member, CSE(AI & ML)",
-    img: "/images/balu.JPEG",
+    img: "/images/balu.jpeg",
     quote: "Passionate about building innovative technology solutions using Python, Artificial Intelligence, and Web Development. Contributing creativity, problem-solving, and a growth mindset to every project as part of the E-Cell Web & Technology Team."
   },
   {
@@ -115,21 +115,21 @@ const TESTIMONIALS: Testimonial[] = [
     id: "15",
     name: "Bhavani",
     role: "Creative & Design Team Member, CSM(AI & ML)",
-    img: "/images/bhavani.JPEG",
+    img: "/images/logo.jpeg",
     quote: "Contributing creative designs and visual content for E-Cell campaigns and events. Bringing artistic vision and design expertise to enhance the visual identity of E-Cell initiatives."
   },
   {
     id: "16",
     name: "Hansini Gaddam",
     role: "Social Media & Influencer, Social Media",
-    img: "/images/hansini.JPEG",
+    img: "/images/hansini.jpeg",
     quote: "A Computer Science student, content creator, and aspiring entrepreneur with a passion for creativity, branding, and innovation. I enjoy building engaging digital experiences, collaborating on impactful projects, and contributing to E-Cell initiatives that encourage entrepreneurship."
   },
   {
     id: "17",
     name: "P. Varshitha Reddy",
     role: "Social Media & Influencer Team Member, CSE",
-    img: "/images/varshitha.JPEG",
+    img: "/images/varshitha.jpeg",
     quote: "Motivated Computer Science Engineering student with an 8.76 CGPA and a strong interest in software development, Artificial Intelligence, Prompt Engineering, and entrepreneurship. Passionate about digital branding, content creation, and innovation."
   },
   {
@@ -171,10 +171,10 @@ export const Testimonials: React.FC = () => {
   const t = TESTIMONIALS[current];
 
   return (
-    <div className="max-w-3xl mx-auto text-center px-4">
-      <div className="relative glass-card rounded-[28px] p-8 md:p-12 overflow-hidden">
+    <div className="max-w-2xl mx-auto text-center px-4">
+      <div className="relative glass-card rounded-[20px] p-5 md:p-8 overflow-hidden">
         {/* Quote Icon */}
-        <Quote className="w-10 h-10 text-blue-500/20 absolute top-6 left-6" />
+        <Quote className="w-8 h-8 text-blue-500/20 absolute top-4 left-4" />
 
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
@@ -185,23 +185,23 @@ export const Testimonials: React.FC = () => {
             animate="center"
             exit="exit"
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="flex flex-col items-center gap-6"
+            className="flex flex-col items-center gap-4"
           >
             {/* Avatar */}
-            <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-white/10 bg-zinc-900">
+            <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-white/10 bg-zinc-900">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={t.img} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
             </div>
 
             {/* Quote Text */}
-            <p className="text-base md:text-lg text-zinc-200 leading-relaxed italic max-w-xl">
+            <p className="text-sm md:text-base text-zinc-200 leading-relaxed italic max-w-lg">
               &ldquo;{t.quote}&rdquo;
             </p>
 
             {/* Attribution */}
             <div>
-              <p className="text-sm font-bold text-white">{t.name}</p>
-              <p className="text-xs text-zinc-400 mt-0.5">{t.role}</p>
+              <p className="text-xs md:text-sm font-bold text-white">{t.name}</p>
+              <p className="text-[10px] md:text-xs text-zinc-400 mt-0.5">{t.role}</p>
             </div>
           </motion.div>
         </AnimatePresence>
