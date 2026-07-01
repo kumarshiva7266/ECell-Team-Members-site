@@ -7,7 +7,8 @@ export const ThreeBg: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    // Disable on mobile for performance
+    if (window.innerWidth < 768 || !containerRef.current) return;
 
     // Dimensions
     const width = window.innerWidth;
@@ -21,13 +22,13 @@ export const ThreeBg: React.FC = () => {
     camera.position.z = 200;
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true, powerPreference: "high-performance" });
     renderer.setSize(width, height);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     containerRef.current.appendChild(renderer.domElement);
 
-    // Particle Geometry
-    const count = 400;
+    // Particle Geometry - Reduced count for performance
+    const count = 150;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(count * 3);
     const originalPositions: { x: number; y: number; z: number }[] = [];
@@ -74,11 +75,15 @@ export const ThreeBg: React.FC = () => {
     const points = new THREE.Points(geometry, material);
     scene.add(points);
 
-    // Interactive mouse movement tracker
+    // Interactive mouse movement tracker - throttled
     let targetX = 0;
     let targetY = 0;
+    let lastMoveTime = 0;
 
     const handleMouseMove = (e: MouseEvent) => {
+      const now = Date.now();
+      if (now - lastMoveTime < 50) return; // Throttle to 20fps
+      lastMoveTime = now;
       targetX = (e.clientX - window.innerWidth / 2) * 0.08;
       targetY = (e.clientY - window.innerHeight / 2) * 0.08;
     };
@@ -145,7 +150,7 @@ export const ThreeBg: React.FC = () => {
   return (
     <div 
       ref={containerRef} 
-      className="fixed inset-0 pointer-events-none z-[1] w-full h-full opacity-60" 
+      className="fixed inset-0 pointer-events-none z-[1] w-full h-full opacity-60 hidden md:block" 
     />
   );
 };

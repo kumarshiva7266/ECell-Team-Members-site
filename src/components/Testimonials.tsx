@@ -120,7 +120,7 @@ export const Testimonials: React.FC = () => {
             {/* Avatar */}
             <div className="w-20 h-20 rounded-full overflow-hidden ring-2 ring-white/10 bg-zinc-900">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={t.img} alt={t.name} className="w-full h-full object-cover" />
+              <img src={t.img} alt={t.name} className="w-full h-full object-cover" loading="lazy" />
             </div>
 
             {/* Quote Text */}

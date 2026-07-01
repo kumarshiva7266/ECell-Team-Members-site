@@ -138,7 +138,7 @@ const DomainGroup: React.FC<DomainGroupProps> = ({ emoji, domainName, color, mem
                   className="flex items-center gap-2 bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.05] hover:border-white/[0.15] rounded-xl px-2.5 py-2 cursor-pointer transition-all group"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={m.img} alt={m.name} className="w-6 h-6 rounded-full object-cover border border-white/10 shrink-0" />
+                  <img src={m.img} alt={m.name} className="w-6 h-6 rounded-full object-cover border border-white/10 shrink-0" loading="lazy" />
                   <div className="flex-1 min-w-0 text-left">
                     <div className="text-[11px] font-semibold text-zinc-100 truncate group-hover:text-white">{m.name}</div>
                     <div className={`text-[9px] ${c.text} truncate`}>{m.role}</div>

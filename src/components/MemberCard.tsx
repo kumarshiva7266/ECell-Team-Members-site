@@ -66,6 +66,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onViewProfile, i
           src={member.img}
           alt={member.name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          loading="lazy"
         />
         <div className={`absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t ${gradient} opacity-30`} />
       </div>

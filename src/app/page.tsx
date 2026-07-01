@@ -253,6 +253,7 @@ export default function HomePage() {
                 src="/images/logo.jpeg"
                 alt="E-Cell Logo"
                 className="w-full h-full object-cover"
+                loading="eager"
               />
             </div>
             <span className="font-bold text-xl text-white">E-Cell Crew United</span>
@@ -397,7 +398,7 @@ export default function HomePage() {
                       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-sky-400/20 to-blue-500/15 blur-[150px]"
                     />
                     {/* Floating Particles */}
-                    {[...Array(20)].map((_, i) => (
+                    {[...Array(8)].map((_, i) => (
                       <motion.div
                         key={i}
                         animate={{
@@ -412,7 +413,7 @@ export default function HomePage() {
                           delay: Math.random() * 5,
                           ease: "easeInOut"
                         }}
-                        className="absolute w-1 h-1 rounded-full bg-blue-400/40"
+                        className="absolute w-1 h-1 rounded-full bg-blue-400/40 hidden sm:block"
                         style={{
                           left: `${Math.random() * 100}%`,
                           top: `${Math.random() * 100}%`
@@ -733,7 +734,13 @@ export default function HomePage() {
                           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-400 via-purple-500 to-blue-500 opacity-40 blur-[12px] animate-pulse" />
                           <div className="relative w-full h-full rounded-full overflow-hidden ring-4 ring-gradient-to-r from-amber-500/30 to-purple-500/30 bg-zinc-900 shadow-2xl">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img src={m.img} alt={m.name} className="w-full h-full object-cover" />
+                            <img 
+                              src={m.img} 
+                              alt={m.name} 
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                              onError={(e) => { e.currentTarget.src = '/images/logo.jpeg'; }}
+                            />
                           </div>
                           <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 border-2 border-zinc-900 shadow-lg" />
                           {/* Crown icon for premium feel */}

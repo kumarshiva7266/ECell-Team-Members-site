@@ -459,7 +459,7 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
                   style={{ background: "conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6)" }} />
                 <div className="relative w-[120px] h-[120px] rounded-full overflow-hidden border-2 border-[#0d0e1f] bg-zinc-900">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={member.img} alt={member.name} className="w-full h-full object-cover" />
+                  <img src={member.img} alt={member.name} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 {/* Status dot */}
                 <div className="absolute bottom-1.5 right-1.5 w-4 h-4 rounded-full bg-emerald-500 border-2 border-[#0d0e1f] shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
