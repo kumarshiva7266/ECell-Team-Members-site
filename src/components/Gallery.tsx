@@ -110,35 +110,48 @@ export const Gallery: React.FC = () => {
 
       {/* Lightbox / Video Support Modal */}
       {selectedItem && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/85 backdrop-blur-[10px]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/95 backdrop-blur-md"
+          onClick={() => setSelectedItem(null)}
+        >
+          {/* Close button on the side */}
           <button
-            onClick={() => setSelectedItem(null)}
-            className="absolute top-4 right-4 p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 text-white cursor-pointer z-10"
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedItem(null);
+            }}
+            className="absolute top-4 right-4 md:top-8 md:right-8 p-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 text-white cursor-pointer z-10 transition-all hover:scale-110"
           >
-            <X className="w-5 h-5" />
+            <X className="w-6 h-6" />
           </button>
           
-          <div className="relative max-w-4xl max-h-[85vh] w-full flex items-center justify-center">
+          <div 
+            className="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
             {selectedItem.type === "image" ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={selectedItem.url}
                 alt={selectedItem.title}
-                className="max-w-full max-h-[80vh] rounded-[20px] border border-white/10 shadow-2xl object-contain"
+                className="max-w-full max-h-[85vh] rounded-[20px] border border-white/10 shadow-2xl object-contain"
               />
             ) : (
               <video
                 src={selectedItem.url}
                 controls
                 autoPlay
-                className="max-w-full max-h-[80vh] rounded-[20px] border border-white/10 shadow-2xl"
+                className="max-w-full max-h-[85vh] rounded-[20px] border border-white/10 shadow-2xl"
               />
             )}
-            <div className="absolute bottom-[-40px] left-0 right-0 text-center text-sm font-semibold text-zinc-300">
+            <div className="absolute bottom-[-50px] left-0 right-0 text-center text-sm font-semibold text-zinc-300">
               {selectedItem.title} &middot; {selectedItem.category}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );

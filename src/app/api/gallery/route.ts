@@ -19,6 +19,9 @@ export async function GET() {
       return [".png", ".jpg", ".jpeg", ".webp", ".gif", ".mp4", ".webm"].includes(ext);
     });
 
+    // Sort files alphabetically to maintain serial order (1, 2, 3, 4...)
+    mediaFiles.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+
     const items = mediaFiles.map((file, index) => {
       const ext = path.extname(file).toLowerCase();
       const isVideo = [".mp4", ".webm"].includes(ext);
