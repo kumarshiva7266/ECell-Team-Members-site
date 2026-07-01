@@ -49,7 +49,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onViewProfile, i
       transition={{ duration: 0.45, delay: index * 0.06 }}
       whileHover={{ y: -8, scale: 1.02 }}
       onClick={() => onViewProfile(member)}
-      className="glass-card hover:glass-card-hover rounded-[25px] p-6 flex flex-col items-center text-center cursor-pointer transition-all duration-300 relative overflow-hidden group"
+      className="glass-card hover:glass-card-hover rounded-[25px] p-4 sm:p-6 flex flex-col items-center text-center cursor-pointer transition-all duration-300 relative overflow-hidden group"
     >
       {/* Gradient top bar */}
       <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
@@ -60,56 +60,62 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onViewProfile, i
       </div>
 
       {/* Avatar */}
-      <div className="relative w-24 h-24 rounded-full overflow-hidden mb-4 ring-2 ring-white/10 group-hover:ring-white/30 transition-all duration-300 bg-zinc-900">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={member.img}
-          alt={member.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          loading="lazy"
-        />
+      <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-3 sm:mb-4 ring-2 ring-white/10 group-hover:ring-white/30 transition-all duration-300 bg-zinc-900">
+        {member.img && !member.img.includes('tech.png') && !member.img.includes('president.png') && !member.img.includes('vp.png') ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={member.img}
+            alt={member.name}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full bg-zinc-800 flex items-center justify-center">
+            <span className="text-2xl sm:text-3xl font-bold text-zinc-600">{member.name.charAt(0)}</span>
+          </div>
+        )}
         <div className={`absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t ${gradient} opacity-30`} />
       </div>
 
       {/* Name / Role */}
-      <h3 className="text-base font-bold text-white mb-1">{member.name}</h3>
-      <p className={`text-xs font-semibold bg-gradient-to-r ${gradient} bg-clip-text text-transparent mb-1`}>
+      <h3 className="text-sm sm:text-base font-bold text-white mb-1">{member.name}</h3>
+      <p className={`text-[10px] sm:text-xs font-semibold bg-gradient-to-r ${gradient} bg-clip-text text-transparent mb-1`}>
         {member.role}
       </p>
-      <p className="text-[11px] text-zinc-500 font-mono mb-1">{member.dept}</p>
-      <p className="text-[10px] text-zinc-600 mb-3">{member.year}</p>
+      <p className="text-[10px] sm:text-[11px] text-zinc-500 font-mono mb-1">{member.dept}</p>
+      <p className="text-[9px] sm:text-[10px] text-zinc-600 mb-2 sm:mb-3">{member.year}</p>
 
       {/* Skills */}
-      <div className="flex flex-wrap gap-1.5 justify-center mb-4">
+      <div className="flex flex-wrap gap-1 sm:gap-1.5 justify-center mb-3 sm:mb-4">
         {member.skills.slice(0, 3).map((skill, i) => (
-          <span key={i} className="text-[10px] px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.07] text-zinc-400">
+          <span key={i} className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.07] text-zinc-400">
             {skill}
           </span>
         ))}
       </div>
 
       {/* Connect Area */}
-      <div className="flex gap-2 mb-4" onClick={e => e.stopPropagation()}>
+      <div className="flex gap-1.5 sm:gap-2 mb-3 sm:mb-4" onClick={e => e.stopPropagation()}>
         {member.email && (
           <button 
             onClick={() => setShowEmailPopup(true)}
-            className="p-1.5 rounded-full bg-gradient-to-br from-red-500 to-orange-500 text-white hover:scale-110 transition-all shadow-lg shadow-red-500/20 cursor-pointer"
+            className="p-1 sm:p-1.5 rounded-full bg-gradient-to-br from-red-500 to-orange-500 text-white hover:scale-110 transition-all shadow-lg shadow-red-500/20 cursor-pointer"
           >
-            <Mail className="w-3.5 h-3.5" />
+            <Mail className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
           </button>
         )}
         {member.linkedin && (
-          <a href={member.linkedin} target="_blank" rel="noreferrer" className="p-1.5 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white hover:scale-110 transition-all shadow-lg shadow-blue-500/20">
+          <a href={member.linkedin} target="_blank" rel="noreferrer" className="p-1 sm:p-1.5 rounded-full bg-gradient-to-br from-blue-600 to-blue-800 text-white hover:scale-110 transition-all shadow-lg shadow-blue-500/20">
             <LinkedInIcon />
           </a>
         )}
         {member.github && (
-          <a href={member.github} target="_blank" rel="noreferrer" className="p-1.5 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 text-white hover:scale-110 transition-all shadow-lg shadow-gray-500/20">
+          <a href={member.github} target="_blank" rel="noreferrer" className="p-1 sm:p-1.5 rounded-full bg-gradient-to-br from-gray-700 to-gray-900 text-white hover:scale-110 transition-all shadow-lg shadow-gray-500/20">
             <GitHubIcon />
           </a>
         )}
         {member.instagram && (
-          <a href={member.instagram} target="_blank" rel="noreferrer" className="p-1.5 rounded-full bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 text-white hover:scale-110 transition-all shadow-lg shadow-pink-500/20">
+          <a href={member.instagram} target="_blank" rel="noreferrer" className="p-1 sm:p-1.5 rounded-full bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 text-white hover:scale-110 transition-all shadow-lg shadow-pink-500/20">
             <InstagramIcon />
           </a>
         )}
@@ -118,9 +124,9 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onViewProfile, i
       {/* CTA */}
       <button
         onClick={e => { e.stopPropagation(); onViewProfile(member); }}
-        className="glass-button border-white/5 hover:border-white/20 flex items-center gap-2 text-xs font-semibold px-4 py-2 rounded-full text-zinc-300 hover:text-white transition-all cursor-pointer"
+        className="glass-button border-white/5 hover:border-white/20 flex items-center gap-2 text-[10px] sm:text-xs font-semibold px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-zinc-300 hover:text-white transition-all cursor-pointer"
       >
-        <Eye className="w-3.5 h-3.5" /> View Full Profile
+        <Eye className="w-3 sm:w-3.5 h-3 sm:h-3.5" /> View Full Profile
       </button>
 
       {/* Email Popup Modal */}

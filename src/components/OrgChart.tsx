@@ -183,11 +183,23 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
       <FacultyNode />
       <Line />
 
-      {/* ── Level 2: Advisory Committee ── */}
+      {/* ── Level 2: VP Operations (Lavanya) ── */}
+      <NamedNode
+        emoji="⚙️"
+        label="Vice-President (Operations)"
+        name="B. Lavanya"
+        color="purple"
+        member={findMember("Lavanya")}
+        onSelect={onSelectMember}
+        delay={0.1}
+      />
+      <Line />
+
+      {/* ── Level 3: Advisory Committee ── */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.05 }}
+        transition={{ delay: 0.15 }}
         className="flex flex-col md:flex-row gap-4 md:gap-8 items-center justify-center"
       >
         <NamedNode
@@ -197,7 +209,7 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
           color="emerald"
           member={findMember("Anshu")}
           onSelect={onSelectMember}
-          delay={0.1}
+          delay={0.2}
         />
         <NamedNode
           emoji="🏛️"
@@ -206,60 +218,31 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
           color="emerald"
           member={findMember("Maheswar")}
           onSelect={onSelectMember}
-          delay={0.15}
+          delay={0.25}
         />
       </motion.div>
       <Line />
 
-      {/* ── Level 3: President ── */}
+      {/* ── Level 4: President ── */}
       <NamedNode
-        emoji="👑"
+        emoji="🎯"
         label="President"
         name="M. Rohith Kumar"
         color="blue"
         member={findMember("Rohith")}
         onSelect={onSelectMember}
-        delay={0.2}
+        delay={0.3}
       />
       <Line />
 
-      {/* ── Level 4: VP Operations + VP Outreach (side by side) ── */}
-      <HConnector width="w-72 md:w-96" />
-      <div className="flex flex-col md:flex-row gap-4 md:gap-16 items-start justify-center mt-0.5">
-        <div className="flex flex-col items-center gap-0">
-          <NamedNode
-            emoji="⚙️"
-            label="Vice-President (Operations)"
-            name="B. Lavanya"
-            color="purple"
-            member={findMember("Lavanya")}
-            onSelect={onSelectMember}
-            delay={0.25}
-          />
-          <Line height="h-6" />
-        </div>
-        <div className="flex flex-col items-center gap-0">
-          <NamedNode
-            emoji="📡"
-            label="Vice-President (Outreach)"
-            name="P. Goutham Reddy"
-            color="pink"
-            member={findMember("Goutham")}
-            onSelect={onSelectMember}
-            delay={0.3}
-          />
-          <Line height="h-6" />
-        </div>
-      </div>
-
-      {/* ── Level 5: Secretary & Treasurer ── */}
+      {/* ── Level 5: VP Outreach ── */}
       <div className="flex flex-col items-center">
         <NamedNode
-          emoji="📄"
-          label="Secretary & Treasurer"
-          name="Trisha Mewade"
-          color="cyan"
-          member={findMember("Trisha")}
+          emoji="📡"
+          label="Vice-President (Outreach)"
+          name="P. Goutham Reddy"
+          color="pink"
+          member={findMember("Goutham")}
           onSelect={onSelectMember}
           delay={0.35}
         />
@@ -269,7 +252,7 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
       {/* ── Level 6: Web & Tech ── */}
       <div className="flex flex-col items-center">
         <NamedNode
-          emoji="💻"
+          emoji="�"
           label="Web & Technology"
           name="G. Shiv Prasad"
           color="violet"
@@ -280,7 +263,21 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
         <Line />
       </div>
 
-      {/* ── Level 7: All Domain Sub-Teams (Collapsible groups showing all names) ── */}
+      {/* ── Level 7: Secretary & Treasurer ── */}
+      <div className="flex flex-col items-center">
+        <NamedNode
+          emoji="�"
+          label="Secretary & Treasurer"
+          name="Trisha Mewade"
+          color="cyan"
+          member={findMember("Trisha")}
+          onSelect={onSelectMember}
+          delay={0.45}
+        />
+        <Line />
+      </div>
+
+      {/* ── Level 8: All Domain Sub-Teams (Collapsible groups showing all names) ── */}
       <div className="w-full max-w-6xl px-4">
         {/* Wide horizontal connector */}
         <div className="relative w-full flex justify-around mb-0">
@@ -297,7 +294,7 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
             color="rose"
             members={members}
             onSelect={onSelectMember}
-            delay={0.45}
+            delay={0.5}
           />
           <DomainGroup
             emoji="🎨"
@@ -305,7 +302,7 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
             color="violet"
             members={members}
             onSelect={onSelectMember}
-            delay={0.5}
+            delay={0.55}
           />
           <DomainGroup
             emoji="📅"
@@ -313,7 +310,7 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
             color="amber"
             members={members}
             onSelect={onSelectMember}
-            delay={0.55}
+            delay={0.6}
           />
           <DomainGroup
             emoji="📱"
@@ -321,7 +318,7 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
             color="cyan"
             members={members}
             onSelect={onSelectMember}
-            delay={0.6}
+            delay={0.65}
           />
         </div>
       </div>

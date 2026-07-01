@@ -265,10 +265,64 @@ const INITIAL_MEMBERS: Member[] = [
     favoriteQuote: "Numbers tell stories — the best founders know how to read them.",
     personalWebsite: ""
   },
+  {
+    id: "5",
+    name: "Trisha Mewade",
+    role: "Secretary & Treasurer",
+    domain: "Secretary & Treasurer",
+    dept: "Data Science",
+    year: "3rd year",
+    skills: ["Data Science", "Artificial Intelligence", "Machine Learning", "Budgeting", "Financial Reporting", "Documentation", "Sponsorship Management", "Vendor Negotiation", "Cost Control", "Fiscal Compliance", "Resource Allocation", "Strategic Planning"],
+    about: "Third-year B.Tech Data Science student passionate about technology and innovation. As the Secretary & Treasurer of E-Cell, I manage documentation, maintain official records, and support financial record-keeping to ensure smooth team operations.",
+    email: "trishapmm@gmail.com",
+    linkedin: "https://www.linkedin.com/in/trisha-mewade-220572361?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    github: "https://github.com/Trisha-mewade",
+    instagram: "https://www.instagram.com/__tri__sha__1111?igsh=MWdkamdnYW8zbjllMQ==",
+    portfolio: "",
+    resumeUrl: "/resume/trisha.pdf",
+    img: "/images/trisha.JPEG",
+    achievements: ["Secured Elite certification in NPTEL course", "Completed SAP Code Unnati Foundation Course", "Served as Student Coordinator for SpeakSphere", "Secured 1st Place in College Debate Competition"],
+    isCore: true,
+    memberSince: "may 2026",
+    status: "Core Executive Member",
+    location: "Hyderabad, Telangana",
+    availability: "Available for Collaboration",
+    responsibilities: [
+      "Manage E-Cell's annual budget and financial planning",
+      "Oversee cashflow management and audit preparations",
+      "Secure sponsorships and manage vendor relationships",
+      "Prepare financial reports for leadership review",
+      "Ensure fiscal compliance with institutional guidelines",
+      "Support leadership in resource allocation decisions",
+      "Coordinate sponsorship communication and negotiations",
+      "Maintain transparent financial records and documentation"
+    ],
+    roleImpact: "The Secretary & Treasurer ensures E-Cell's financial health — managing budgets, securing sponsorships, maintaining compliance, and enabling the cell to execute ambitious events and programs sustainably.",
+    projectProgresses: [
+      { name: "Lekha Yatra – AI Document Management System", progress: 85 },
+      { name: "Explainable AI for Women Safety Research", progress: 75 },
+      { name: "Budget Management System 2026", progress: 70 },
+      { name: "Financial Compliance Framework", progress: 60 }
+    ],
+    stats: [
+      { label: "Budget Managed", value: "₹8L+", icon: "💰" },
+      { label: "Sponsors Secured", value: "10+", icon: "🤝" },
+      { label: "Financial Reports", value: "20+", icon: "📊" },
+      { label: "Audit Compliance", value: "100%", icon: "✅" },
+      { label: "Years in E-Cell", value: "1", icon: "⭐" },
+      { label: "CGPA", value: "9.6", icon: "📊" }
+    ],
+    leadershipSkills: ["Data Science", "Financial Management", "Budget Planning", "Documentation", "Sponsorship Management", "Strategic Planning", "Compliance", "Communication"],
+    certificates: ["NPTEL Elite Certification in Data Structures and Algorithm Design", "SAP Code Unnati Foundation Course Completion", "Data Analytics Certification", "Google Cloud APAC Certification"],
+    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSE(Data Science)", cgpa: "9.6", gradYear: "2028" },
+    interests: ["Data Science", "Artificial Intelligence", "Machine Learning", "Financial Management", "Research", "Documentation", "Strategic Planning", "Technology Innovation"],
+    favoriteQuote: "A budget is telling your money where to go instead of wondering where it went.",
+    personalWebsite: ""
+  },
 
   /* ── Remaining Leadership ── */
   {
-    id: "5",
+    id: "6",
     name: "B. Lavanya",
     role: "Vice-President (Operations)",
     domain: "Leadership",
@@ -322,7 +376,7 @@ const INITIAL_MEMBERS: Member[] = [
     personalWebsite: ""
   },
   {
-    id: "6",
+    id: "7",
     name: "Paisa Goutham Krishna Reddy",
     role: "Vice President",
     domain: "Leadership",
@@ -373,60 +427,6 @@ const INITIAL_MEMBERS: Member[] = [
     education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSE(Cyber Security)", cgpa: "7.95", gradYear: "2027" },
     interests: ["Startup Ecosystems", "Corporate Strategy", "Networking", "Public Relations", "Event Management", "Business Development", "Leadership", "Community Building"],
     favoriteQuote: "Your network is your net worth.",
-    personalWebsite: ""
-  },
-  {
-    id: "7",
-    name: "Trisha Mewade",
-    role: "Secretary & Treasurer",
-    domain: "Secretary & Treasurer",
-    dept: "Data Science",
-    year: "3rd year",
-    skills: ["Data Science", "Artificial Intelligence", "Machine Learning", "Budgeting", "Financial Reporting", "Documentation", "Sponsorship Management", "Vendor Negotiation", "Cost Control", "Fiscal Compliance", "Resource Allocation", "Strategic Planning"],
-    about: "Third-year B.Tech Data Science student passionate about technology and innovation. As the Secretary & Treasurer of E-Cell, I manage documentation, maintain official records, and support financial record-keeping to ensure smooth team operations.",
-    email: "trishapmm@gmail.com",
-    linkedin: "https://www.linkedin.com/in/trisha-mewade-220572361?utm_source=share_via&utm_content=profile&utm_medium=member_android",
-    github: "https://github.com/Trisha-mewade",
-    instagram: "https://www.instagram.com/__tri__sha__1111?igsh=MWdkamdnYW8zbjllMQ==",
-    portfolio: "",
-    resumeUrl: "/resume/trisha.pdf",
-    img: "/images/trisha.JPEG",
-    achievements: ["Secured Elite certification in NPTEL course", "Completed SAP Code Unnati Foundation Course", "Served as Student Coordinator for SpeakSphere", "Secured 1st Place in College Debate Competition"],
-    isCore: true,
-    memberSince: "may 2026",
-    status: "Core Executive Member",
-    location: "Hyderabad, Telangana",
-    availability: "Available for Collaboration",
-    responsibilities: [
-      "Manage E-Cell's annual budget and financial planning",
-      "Oversee cashflow management and audit preparations",
-      "Secure sponsorships and manage vendor relationships",
-      "Prepare financial reports for leadership review",
-      "Ensure fiscal compliance with institutional guidelines",
-      "Support leadership in resource allocation decisions",
-      "Coordinate sponsorship communication and negotiations",
-      "Maintain transparent financial records and documentation"
-    ],
-    roleImpact: "The Secretary & Treasurer ensures E-Cell's financial health — managing budgets, securing sponsorships, maintaining compliance, and enabling the cell to execute ambitious events and programs sustainably.",
-    projectProgresses: [
-      { name: "Lekha Yatra – AI Document Management System", progress: 85 },
-      { name: "Explainable AI for Women Safety Research", progress: 75 },
-      { name: "Budget Management System 2026", progress: 70 },
-      { name: "Financial Compliance Framework", progress: 60 }
-    ],
-    stats: [
-      { label: "Budget Managed", value: "₹8L+", icon: "💰" },
-      { label: "Sponsors Secured", value: "10+", icon: "🤝" },
-      { label: "Financial Reports", value: "20+", icon: "📊" },
-      { label: "Audit Compliance", value: "100%", icon: "✅" },
-      { label: "Years in E-Cell", value: "1", icon: "⭐" },
-      { label: "CGPA", value: "9.6", icon: "📊" }
-    ],
-    leadershipSkills: ["Data Science", "Financial Management", "Budget Planning", "Documentation", "Sponsorship Management", "Strategic Planning", "Compliance", "Communication"],
-    certificates: ["NPTEL Elite Certification in Data Structures and Algorithm Design", "SAP Code Unnati Foundation Course Completion", "Data Analytics Certification", "Google Cloud APAC Certification"],
-    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSE(Data Science)", cgpa: "9.6", gradYear: "2028" },
-    interests: ["Data Science", "Artificial Intelligence", "Machine Learning", "Financial Management", "Research", "Documentation", "Strategic Planning", "Technology Innovation"],
-    favoriteQuote: "A budget is telling your money where to go instead of wondering where it went.",
     personalWebsite: ""
   },
 
@@ -598,12 +598,12 @@ const INITIAL_MEMBERS: Member[] = [
   {
     id: "11",
     name: "Kushi Kumari",
-    role: "Creative & Design Coordinator",
+    role: "E-Cell Member",
     domain: "Creative & Design",
-    dept: "CSE",
+    dept: "B.Tech CSE (AI & ML)",
     year: "2nd Year",
-    skills: ["UI/UX", "Figma", "Branding", "Adobe Illustrator", "Photoshop", "Canva", "Typography", "Color Theory", "Wireframing", "Prototyping", "Visual Design", "Motion Graphics"],
-    about: "Crafting beautiful interactive designs, layouts, and typography grids for all E-Cell assets. Creating visual identities for events, campaigns, and digital platforms. Designing user interfaces for websites and mobile applications with focus on UX. Producing marketing collateral including posters, banners, and social media graphics. Maintaining brand consistency across all visual communications and touchpoints.",
+    skills: ["UI/UX", "Figma", "Branding", "Adobe Illustrator", "Photoshop", "Canva", "Typography", "Color Theory", "Wireframing", "Prototyping", "Visual Design", "Motion Graphics", "Artificial Intelligence", "Machine Learning", "Edge AI"],
+    about: "I'm Kushi — a first-year AIML student with a strong passion for building intelligent solutions. I actively participate in hackathons, earn AI certifications, and contribute to the visual identity of the college's E-Cell while transforming machine learning concepts into practical applications.",
     email: "kushi@ecell.ac.in",
     linkedin: "https://linkedin.com",
     github: "https://github.com",
@@ -611,41 +611,39 @@ const INITIAL_MEMBERS: Member[] = [
     portfolio: "",
     resumeUrl: "/resume/Kushi.pdf",
     img: "/images/khusi.JPEG",
-    achievements: ["Designed E-Cell visual styling system"],
-    isCore: true,
-    memberSince: "May 2026",
-    status: "Core Executive Member",
+    achievements: ["Kalam Space Convention 2K25", "Genesis Hackathon", "Eureka Engines 3.0", "Multiple AI Certifications with Claude"],
+    isCore: false,
+    memberSince: "June 2026",
+    status: "E-Cell Member",
     location: "Hyderabad, Telangana",
     availability: "Available for Collaboration",
     responsibilities: [
-      "Craft beautiful interactive designs for all E-Cell assets",
-      "Create visual identities for events, campaigns, and platforms",
-      "Design user interfaces for websites and mobile applications",
-      "Produce marketing collateral including posters and banners",
-      "Maintain brand consistency across all visual communications",
-      "Collaborate with marketing team for content alignment",
-      "Design social media graphics and digital assets",
-      "Apply design principles to enhance brand recognition"
+      "Contribute to visual identity of E-Cell",
+      "Participate in hackathons and AI competitions",
+      "Transform machine learning concepts into practical applications",
+      "Design creative assets for events and campaigns",
+      "Apply AI knowledge to design solutions",
+      "Collaborate with team on innovative projects"
     ],
-    roleImpact: "The Creative & Design Coordinator shapes E-Cell's visual identity — crafting stunning designs, maintaining brand consistency, and creating compelling visual content that amplifies the cell's message across all platforms.",
+    roleImpact: "As an E-Cell Member, I contribute my design skills and AI knowledge to create innovative solutions while building intelligent applications that bridge the gap between creativity and technology.",
     projectProgresses: [
-      { name: "Brand Identity System", progress: 80 },
-      { name: "E-Summit Visual Campaign", progress: 70 },
-      { name: "Social Media Templates", progress: 60 },
-      { name: "Website UI Redesign", progress: null }
+      { name: "Advanced TV Remote Control", progress: 75 },
+      { name: "Edge AI Implementation", progress: 60 },
+      { name: "Advanced Navigation Suite", progress: 50 },
+      { name: "Intelligent Home", progress: 40 }
     ],
     stats: [
-      { label: "Designs Created", value: "100+", icon: "🎨" },
-      { label: "Campaigns Supported", value: "12", icon: "📢" },
-      { label: "Social Assets", value: "50+", icon: "📱" },
-      { label: "Brand Consistency", value: "100%", icon: "✅" },
-      { label: "Years in E-Cell", value: "1", icon: "⭐" },
-      { label: "Events Branded", value: "8", icon: "🎯" }
+      { label: "Hackathons", value: "3+", icon: "�" },
+      { label: "AI Certifications", value: "5+", icon: "🎓" },
+      { label: "Projects Built", value: "4", icon: "�" },
+      { label: "CGPA", value: "8.5", icon: "📊" },
+      { label: "Years in E-Cell", value: "0", icon: "⭐" },
+      { label: "Events Attended", value: "5+", icon: "🎯" }
     ],
-    leadershipSkills: ["UI/UX Design", "Brand Strategy", "Visual Communication", "Creative Direction", "Typography", "Color Theory", "Prototyping", "Team Collaboration"],
-    certificates: ["Google UX Design", "Adobe Creative Suite", "Figma Advanced", "UI/UX Professional"],
-    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSE", cgpa: "8.5", gradYear: "2029" },
-    interests: ["Visual Design", "Brand Identity", "UI/UX", "Typography", "Motion Graphics", "Illustration", "Color Theory", "Creative Direction"],
+    leadershipSkills: ["UI/UX Design", "Brand Strategy", "Visual Communication", "AI/ML", "Problem Solving", "Creative Direction", "Prototyping", "Team Collaboration"],
+    certificates: ["Multiple AI Certifications with Claude", "Google UX Design", "Adobe Creative Suite", "Figma Advanced"],
+    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSE (AI & ML)", cgpa: "8.5", gradYear: "2029" },
+    interests: ["Visual Design", "Brand Identity", "UI/UX", "Artificial Intelligence", "Machine Learning", "Edge AI", "Typography", "Creative Direction"],
     favoriteQuote: "Design is not just what it looks like and feels like. Design is how it works.",
     personalWebsite: ""
   },
@@ -1049,12 +1047,13 @@ export const TeamService = {
         snapshot.forEach((doc) => {
           members.push({ id: doc.id, ...doc.data() } as Member);
         });
-        callback(members.length > 0 ? members : INITIAL_MEMBERS);
+        // Always use INITIAL_MEMBERS to ensure all 18 members are shown
+        callback(INITIAL_MEMBERS);
       }, () => {
-        callback(this.getLocalMembers());
+        callback(INITIAL_MEMBERS);
       });
     } else {
-      callback(this.getLocalMembers());
+      callback(INITIAL_MEMBERS);
       // Return unsubscribe dummy
       return () => { };
     }
@@ -1062,19 +1061,13 @@ export const TeamService = {
 
   getLocalMembers(): Member[] {
     if (typeof window !== "undefined") {
-      // Bump this version whenever INITIAL_MEMBERS changes to force a cache reset
-      const DATA_VERSION = "v3";
-      const storedVersion = localStorage.getItem("ecell_data_version");
-      if (storedVersion !== DATA_VERSION) {
-        // Clear stale data and seed fresh
-        localStorage.removeItem("ecell_members");
-        localStorage.setItem("ecell_data_version", DATA_VERSION);
-        localStorage.setItem("ecell_members", JSON.stringify(INITIAL_MEMBERS));
-        return INITIAL_MEMBERS;
-      }
-      const stored = localStorage.getItem("ecell_members");
-      if (stored) return JSON.parse(stored);
+      // Force cache reset to ensure all 18 members load
+      localStorage.removeItem("ecell_members");
+      localStorage.removeItem("ecell_data_version");
+      const DATA_VERSION = "v5";
+      localStorage.setItem("ecell_data_version", DATA_VERSION);
       localStorage.setItem("ecell_members", JSON.stringify(INITIAL_MEMBERS));
+      return INITIAL_MEMBERS;
     }
     return INITIAL_MEMBERS;
   },

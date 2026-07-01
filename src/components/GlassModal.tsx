@@ -536,19 +536,19 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
                 <a 
                   href={member.resumeUrl} 
                   download
-                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-2xl text-sm font-bold text-white cursor-pointer relative overflow-hidden group"
+                  className="w-full flex items-center justify-center gap-2 py-2 md:py-2.5 px-3 md:px-4 rounded-2xl text-xs md:text-sm font-bold text-white cursor-pointer relative overflow-hidden group"
                   style={{ background: "linear-gradient(135deg, #4f46e5, #7c3aed)" }}
                 >
                   <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <Download className="w-4 h-4 relative z-10" />
+                  <Download className="w-3.5 h-3.5 md:w-4 md:h-4 relative z-10" />
                   <span className="relative z-10">Download Resume</span>
                 </a>
               ) : (
                 <button 
                   disabled
-                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-2xl text-sm font-bold text-zinc-500 cursor-not-allowed relative overflow-hidden bg-zinc-800"
+                  className="w-full flex items-center justify-center gap-2 py-2 md:py-2.5 px-3 md:px-4 rounded-2xl text-xs md:text-sm font-bold text-zinc-500 cursor-not-allowed relative overflow-hidden bg-zinc-800"
                 >
-                  <Download className="w-4 h-4" />
+                  <Download className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   <span>No Resume Available</span>
                 </button>
               )}
@@ -569,15 +569,15 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
               </button>
 
               {/* ── ROW 1: Professional Summary + Role Impact ── */}
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {/* Professional Summary */}
-                <div className="col-span-2 rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="col-span-1 md:col-span-2 rounded-[14px] p-4 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
                   <div className="flex items-center gap-2 mb-2.5">
-                    <span className="text-purple-400 text-sm">👤</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Professional Summary</span>
+                    <span className="text-purple-400 text-sm md:text-sm">👤</span>
+                    <span className="text-xs md:text-xs font-bold text-white uppercase tracking-wider">Professional Summary</span>
                   </div>
-                  <p className="text-[12px] text-zinc-300 leading-relaxed">{d.professionalSummary}</p>
+                  <p className="text-[13px] md:text-[12px] text-zinc-300 leading-relaxed">{d.professionalSummary}</p>
                 </div>
                 {/* Role Impact */}
                 <div className="col-span-1 rounded-[14px] p-4 border border-amber-500/20"

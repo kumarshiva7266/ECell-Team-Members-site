@@ -29,7 +29,7 @@ const DOMAINS = ["All", "Leadership", "Web & Technology", "Marketing & PR", "Cre
 
 const DOMAIN_ICONS: Record<string, string> = {
   "All":                       "🌐",
-  "Leadership":                "👑",
+  "Leadership":                "🎯",
   "Web & Technology":          "💻",
   "Marketing & PR":            "📢",
   "Creative & Design":         "🎨",
@@ -397,32 +397,49 @@ export default function HomePage() {
                       transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
                       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-sky-400/20 to-blue-500/15 blur-[150px]"
                     />
-                    {/* Floating Particles */}
-                    {[...Array(8)].map((_, i) => (
+                    {/* Floating Particles with Multiple Colors */}
+                    {[...Array(15)].map((_, i) => (
                       <motion.div
                         key={i}
                         animate={{
                           y: [0, -100 - Math.random() * 100, 0],
                           x: [0, (Math.random() - 0.5) * 50, 0],
-                          opacity: [0, 0.5, 0],
+                          opacity: [0, 0.6, 0],
                           scale: [0, 1, 0]
                         }}
                         transition={{
-                          duration: 8 + Math.random() * 4,
+                          duration: 6 + Math.random() * 4,
                           repeat: Infinity,
                           delay: Math.random() * 5,
                           ease: "easeInOut"
                         }}
-                        className="absolute w-1 h-1 rounded-full bg-blue-400/40 hidden sm:block"
+                        className="absolute w-1.5 h-1.5 rounded-full hidden sm:block"
                         style={{
                           left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`
+                          top: `${Math.random() * 100}%`,
+                          background: `linear-gradient(135deg, 
+                            ${['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'][Math.floor(Math.random() * 5)]}, 
+                            ${['#60a5fa', '#a78bfa', '#f472b6', '#fbbf24', '#34d399'][Math.floor(Math.random() * 5)]})`
                         }}
                       />
                     ))}
                   </div>
 
                   <div className="relative z-10 max-w-5xl mx-auto">
+                    {/* Personalized Greeting */}
+                    {userProfile && (
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="absolute -top-16 left-0 glass-panel border-white/10 px-4 py-2 rounded-full text-sm text-zinc-300 flex items-center gap-2"
+                      >
+                        <span className="text-xl">👋</span>
+                        <span className="font-medium">Hi, {userProfile.name}!</span>
+                        <span className="text-zinc-500">Welcome to E-Cell</span>
+                      </motion.div>
+                    )}
+
                     {/* Animated Badge */}
                     <motion.div
                       initial={{ opacity: 0, y: -20 }}
@@ -498,7 +515,7 @@ export default function HomePage() {
                       </span>
                     </motion.div>
 
-                    {/* Enhanced CTA Buttons */}
+                    {/* Enhanced CTA Buttons with Blue-Black Glassy Effect */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -506,20 +523,46 @@ export default function HomePage() {
                       className="flex flex-col sm:flex-row gap-4 justify-center"
                     >
                       <motion.button
-                        whileHover={{ scale: 1.05, y: -3 }}
+                        whileHover={{ scale: 1.08, y: -5, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => { setActiveTab("Directory"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                        className="liquid-crystal-button flex items-center gap-2"
+                        className="relative overflow-hidden rounded-full px-8 py-4 font-semibold text-white transition-all duration-300 backdrop-blur-md border border-white/20"
+                        style={{
+                          background: "linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 50%, rgba(30, 58, 138, 0.8) 100%)",
+                          backgroundSize: "200% 200%",
+                          animation: "gradientShift 3s ease infinite"
+                        }}
                       >
-                        <Users className="w-5 h-5" /> Explore Directory <ArrowRight className="w-4 h-4" />
+                        <span className="relative z-10 flex items-center gap-2">
+                          <Users className="w-5 h-5" /> Explore Directory <ArrowRight className="w-4 h-4" />
+                        </span>
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
+                          initial={{ x: "-100%" }}
+                          whileHover={{ x: "100%" }}
+                          transition={{ duration: 0.5 }}
+                        />
                       </motion.button>
                       <motion.button
-                        whileHover={{ scale: 1.05, y: -3 }}
+                        whileHover={{ scale: 1.08, y: -5, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => { setActiveTab("Leadership"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                        className="liquid-crystal-button flex items-center gap-2"
+                        className="relative overflow-hidden rounded-full px-8 py-4 font-semibold text-white transition-all duration-300 backdrop-blur-md border border-white/20"
+                        style={{
+                          background: "linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 50%, rgba(15, 23, 42, 0.9) 100%)",
+                          backgroundSize: "200% 200%",
+                          animation: "gradientShift 4s ease infinite"
+                        }}
                       >
-                        <Zap className="w-5 h-5" /> Meet Leadership
+                        <span className="relative z-10 flex items-center gap-2">
+                          <Zap className="w-5 h-5" /> Meet Leadership
+                        </span>
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"
+                          initial={{ x: "-100%" }}
+                          whileHover={{ x: "100%" }}
+                          transition={{ duration: 0.5 }}
+                        />
                       </motion.button>
                     </motion.div>
 
@@ -563,9 +606,9 @@ export default function HomePage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                       {[
-                        { icon: "🚀", title: "Incubation Sprints", desc: "We provide mentoring support and resources to guide 15+ student startups from early-stage concept to VC pitches.", color: "from-blue-500/20 to-blue-600/10 border-blue-500/30" },
-                        { icon: "🤝", title: "Corporate Connect", desc: "Forging partnerships with 30+ regional accelerators, incubation hubs, and active angel network pools.", color: "from-purple-500/20 to-purple-600/10 border-purple-500/30" },
-                        { icon: "💡", title: "Innovation Culture", desc: "Curating workshops, events, design hackathons and bootcamps to build actionable prototypes.", color: "from-pink-500/20 to-pink-600/10 border-pink-500/30" }
+                        { icon: "🚀", title: "Incubation Sprints", desc: "We provide mentoring support and resources to guide 15+ student startups from early-stage concept to VC pitches.", color: "from-blue-500/30 to-cyan-500/20 border-blue-500/40 hover:shadow-blue-500/30" },
+                        { icon: "🤝", title: "Corporate Connect", desc: "Forging partnerships with 30+ regional accelerators, incubation hubs, and active angel network pools.", color: "from-purple-500/30 to-pink-500/20 border-purple-500/40 hover:shadow-purple-500/30" },
+                        { icon: "💡", title: "Innovation Culture", desc: "Curating workshops, events, design hackathons and bootcamps to build actionable prototypes.", color: "from-amber-500/30 to-orange-500/20 border-amber-500/40 hover:shadow-amber-500/30" }
                       ].map((item, i) => (
                         <motion.div
                           key={i}
@@ -573,11 +616,11 @@ export default function HomePage() {
                           whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: i * 0.1 }}
-                          whileHover={{ y: -12, scale: 1.05, rotateY: 5, rotateX: -5 }}
-                          className={`card-3d glass-card rounded-[22px] p-8 text-center transition-all duration-300 bg-gradient-to-br ${item.color} hover:shadow-2xl hover:shadow-${item.color.split('/')[0]}/20`}
+                          whileHover={{ y: -15, scale: 1.08, rotateY: 8, rotateX: -8 }}
+                          className={`card-3d glass-card rounded-[22px] p-8 text-center transition-all duration-300 bg-gradient-to-br ${item.color} hover:shadow-2xl`}
                         >
                           <motion.div
-                            whileHover={{ rotate: 360, scale: 1.3 }}
+                            whileHover={{ rotate: 360, scale: 1.4 }}
                             transition={{ duration: 0.6 }}
                             className="text-5xl mb-5"
                           >
@@ -645,10 +688,10 @@ export default function HomePage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                       {[
-                        { icon: <Users className="w-6 h-6" />, title: "Browse Members", desc: "Explore our complete team directory", action: "Directory", color: "blue" },
-                        { icon: <Zap className="w-6 h-6" />, title: "Leadership", desc: "Meet our core executive team", action: "Leadership", color: "purple" },
-                        { icon: <Calendar className="w-6 h-6" />, title: "Our Journey", desc: "View our milestones and timeline", action: "Journey", color: "emerald" },
-                        { icon: <Trophy className="w-6 h-6" />, title: "Gallery", desc: "See our event highlights", action: "Gallery", color: "amber" }
+                        { icon: <Users className="w-6 h-6" />, title: "Browse Members", desc: "Explore our complete team directory", action: "Directory", gradient: "from-blue-500 to-cyan-500", shadow: "shadow-blue-500/30" },
+                        { icon: <Zap className="w-6 h-6" />, title: "Leadership", desc: "Meet our core executive team", action: "Leadership", gradient: "from-purple-500 to-pink-500", shadow: "shadow-purple-500/30" },
+                        { icon: <Calendar className="w-6 h-6" />, title: "Our Journey", desc: "View our milestones and timeline", action: "Journey", gradient: "from-emerald-500 to-teal-500", shadow: "shadow-emerald-500/30" },
+                        { icon: <Trophy className="w-6 h-6" />, title: "Gallery", desc: "See our event highlights", action: "Gallery", gradient: "from-amber-500 to-orange-500", shadow: "shadow-amber-500/30" }
                       ].map((item, i) => (
                         <motion.button
                           key={i}
@@ -656,17 +699,21 @@ export default function HomePage() {
                           whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.6, delay: i * 0.1 }}
-                          whileHover={{ scale: 1.08, y: -10, rotateY: 8, rotateX: -8 }}
+                          whileHover={{ scale: 1.1, y: -12, rotateY: 10, rotateX: -10 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => { setActiveTab(item.action); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                          className={`card-3d glass-card rounded-[22px] p-6 text-left transition-all duration-300 group cursor-pointer hover:shadow-2xl hover:shadow-${item.color}-500/20 border-${item.color}-500/20 hover:border-${item.color}-500/40`}
+                          className="card-3d glass-card rounded-[22px] p-6 text-left transition-all duration-300 group cursor-pointer hover:shadow-2xl border-white/10 hover:border-white/20 relative overflow-hidden"
                         >
-                          <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br from-${item.color}-500/20 to-${item.color}-600/10 border border-${item.color}-500/30 flex items-center justify-center text-${item.color}-400 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                            style={{ background: `linear-gradient(135deg, ${item.gradient})` }}
+                          />
+                          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white mb-4 group-hover:scale-110 transition-transform duration-300" style={{ background: `linear-gradient(135deg, ${item.gradient})` }}>
                             {item.icon}
                           </div>
                           <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
                           <p className="text-sm text-zinc-400 mb-4">{item.desc}</p>
-                          <div className={`text-${item.color}-400 text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all`}>
+                          <div className="text-white text-sm font-semibold flex items-center gap-1 group-hover:gap-2 transition-all" style={{ background: `linear-gradient(135deg, ${item.gradient})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
                             Explore <ArrowRight className="w-4 h-4" />
                           </div>
                         </motion.button>
@@ -743,8 +790,6 @@ export default function HomePage() {
                             />
                           </div>
                           <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 border-2 border-zinc-900 shadow-lg" />
-                          {/* Crown icon for premium feel */}
-                          <div className="absolute -top-2 left-1/2 -translate-x-1/2 text-amber-400 text-lg">👑</div>
                         </div>
 
                         <span className="relative text-[10px] font-bold uppercase tracking-widest text-amber-400 bg-gradient-to-r from-amber-500/20 to-purple-500/20 border border-amber-500/30 px-3 py-1 rounded-full mb-3 shadow-lg shadow-amber-500/20">
