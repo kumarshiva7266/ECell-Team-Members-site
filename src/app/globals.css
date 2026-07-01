@@ -1,0 +1,484 @@
+@import "tailwindcss";
+
+@theme {
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-border-hover: rgba(255, 255, 255, 0.2);
+  --color-glass-glow: rgba(79, 140, 255, 0.15);
+  
+  --animate-aurora: aurora 20s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-spin-slow: spin 25s linear infinite;
+  --animate-shimmer: shimmer 2s infinite linear;
+  --animate-glow-pulse: glowPulse 3s ease-in-out infinite;
+  --animate-border-dance: borderDance 4s linear infinite;
+  --animate-gradient-shift: gradientShift 8s ease-in-out infinite;
+
+  @keyframes aurora {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.95); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(79, 140, 255, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(79, 140, 255, 0.6), 0 0 60px rgba(139, 92, 246, 0.4); }
+  }
+  @keyframes borderDance {
+    0% { border-color: rgba(79, 140, 255, 0.3); }
+    25% { border-color: rgba(139, 92, 246, 0.3); }
+    50% { border-color: rgba(236, 72, 153, 0.3); }
+    75% { border-color: rgba(34, 211, 238, 0.3); }
+    100% { border-color: rgba(79, 140, 255, 0.3); }
+  }
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+/* Custom Utilities for Glassmorphism & Liquid Design */
+@utility glass-panel {
+  background: rgba(10, 10, 15, 0.35);
+  backdrop-filter: blur(25px) saturate(190%);
+  -webkit-backdrop-filter: blur(25px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+@utility glass-card {
+  background: rgba(15, 15, 25, 0.4);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+@utility glass-card-hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(20, 20, 35, 0.55);
+  box-shadow: 
+    0 20px 40px 0 rgba(0, 0, 0, 0.5),
+    0 0 20px 2px rgba(79, 140, 255, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+@utility glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+}
+
+@utility text-gradient {
+  background: linear-gradient(135deg, #4f8cff, #8b5cf6, #ec4899);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@utility bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Liquid Crystal Button Style */
+.liquid-crystal-btn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 99px;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.liquid-crystal-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.1), rgba(236, 72, 153, 0.1));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.liquid-crystal-btn:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 6px 20px rgba(79, 140, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-1.5px);
+}
+
+.liquid-crystal-btn:hover::before {
+  opacity: 1;
+}
+
+.liquid-crystal-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.25), rgba(139, 92, 246, 0.25));
+  border-color: rgba(79, 140, 255, 0.5);
+  box-shadow: 
+    0 10px 25px -5px rgba(79, 140, 255, 0.45),
+    0 0 15px 0 rgba(139, 92, 246, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+  background-color: #030303;
+  color: #ededed;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background: radial-gradient(circle at center, #09090e 0%, #030303 100%);
+  min-height: 100vh;
+}
+
+/* Cursor Glow Effect */
+.cursor-glow {
+  pointer-events: none;
+  position: fixed;
+  z-index: 9999;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(79, 140, 255, 0.06) 0%, rgba(139, 92, 246, 0.03) 50%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+
+/* Glass reflection shine */
+.glass-shine {
+  position: relative;
+  overflow: hidden;
+}
+.glass-shine::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -150%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.75s ease;
+}
+.glass-shine:hover::after {
+  left: 150%;
+}
+
+/* Liquid Crystal Transparent Box Style */
+.liquid-crystal-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.015) !important;
+  backdrop-filter: blur(20px) saturate(220%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(220%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03) !important;
+}
+
+.liquid-crystal-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(79, 140, 255, 0.08), transparent 70%);
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.liquid-crystal-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.75s;
+  pointer-events: none;
+}
+
+.liquid-crystal-card:hover::after {
+  left: 150%;
+}
+
+.liquid-crystal-card:hover {
+  background: rgba(255, 255, 255, 0.025) !important;
+  border-color: rgba(79, 140, 255, 0.3) !important;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 25px -5px rgba(79, 140, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  transform: translateY(-6px) scale(1.01);
+}
+
+/* Enhanced Button Styles */
+.hero-button-primary {
+  position: relative;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+  border: none;
+  overflow: hidden;
+}
+
+.hero-button-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.hero-button-primary:hover::before {
+  left: 100%;
+}
+
+/* Magnetic Hover Effect */
+.magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.magnetic-hover:hover {
+  transform: translateY(-2px);
+}
+
+/* Text Reveal Animation */
+@keyframes textReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+.text-reveal {
+  animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Parallax Scroll Effect */
+.parallax-section {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Glass Morphism Enhanced */
+.glass-enhanced {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* iPhone-style Liquid Crystal Button */
+.liquid-crystal-button {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  backdrop-filter: blur(20px) saturate(200%);
+  -webkit-backdrop-filter: blur(20px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  padding: 14px 32px;
+  font-weight: 600;
+  color: white;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.liquid-crystal-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.liquid-crystal-button:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.liquid-crystal-button:hover::before {
+  opacity: 1;
+}
+
+.liquid-crystal-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 3D Card Effect */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+}
+
+/* Floating 3D Elements */
+.float-3d {
+  animation: float3d 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes float3d {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(0deg) rotateY(-5deg);
+  }
+  75% {
+    transform: translateY(-25px) rotateX(-5deg) rotateY(0deg);
+  }
+}
+
+/* Glossy Gradient Text - E-CELL (Blue & White Professional) */
+.glossy-gradient-text {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #e0f2fe 20%,
+    #bae6fd 40%,
+    #7dd3fc 60%,
+    #38bdf8 80%,
+    #0ea5e9 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(56, 189, 248, 0.3));
+}
+
+/* Glossy Gradient Text - Crew United (Blue & White Professional) */
+.glossy-gradient-text-2 {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #dbeafe 25%,
+    #93c5fd 50%,
+    #60a5fa 75%,
+    #3b82f6 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 7s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.3));
+}
+
+/* Enhanced Shimmer Animation for Text */
+@keyframes shimmerText {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 3s linear infinite;
+}
+
