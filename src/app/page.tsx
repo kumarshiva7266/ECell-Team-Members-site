@@ -305,7 +305,7 @@ export default function HomePage() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="lg:hidden glass-panel border-t border-white/5 overflow-hidden"
+              className="lg:hidden border-t border-white/5 overflow-hidden bg-[#030303]"
             >
               <div className="px-4 py-4 flex flex-col gap-1.5">
                 {NAV_LINKS.map(l => (
@@ -398,31 +398,40 @@ export default function HomePage() {
                       className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-sky-400/20 to-blue-500/15 blur-[150px]"
                     />
                     {/* Floating Particles with Multiple Colors */}
-                    {[...Array(15)].map((_, i) => (
-                      <motion.div
-                        key={i}
-                        animate={{
-                          y: [0, -100 - Math.random() * 100, 0],
-                          x: [0, (Math.random() - 0.5) * 50, 0],
-                          opacity: [0, 0.6, 0],
-                          scale: [0, 1, 0]
-                        }}
-                        transition={{
-                          duration: 6 + Math.random() * 4,
-                          repeat: Infinity,
-                          delay: Math.random() * 5,
-                          ease: "easeInOut"
-                        }}
-                        className="absolute w-1.5 h-1.5 rounded-full hidden sm:block"
-                        style={{
-                          left: `${Math.random() * 100}%`,
-                          top: `${Math.random() * 100}%`,
-                          background: `linear-gradient(135deg, 
-                            ${['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'][Math.floor(Math.random() * 5)]}, 
-                            ${['#60a5fa', '#a78bfa', '#f472b6', '#fbbf24', '#34d399'][Math.floor(Math.random() * 5)]})`
-                        }}
-                      />
-                    ))}
+                    {[...Array(15)].map((_, i) => {
+                      // Use deterministic values based on index to avoid hydration mismatch
+                      const seed1 = (i * 12345) % 100;
+                      const seed2 = (i * 67890) % 100;
+                      const seed3 = (i * 11111) % 5;
+                      const seed4 = (i * 22222) % 5;
+                      const seed5 = (i * 33333) % 4;
+                      const seed6 = (i * 44444) % 4;
+                      return (
+                        <motion.div
+                          key={i}
+                          animate={{
+                            y: [0, -100 - (seed1 / 100) * 100, 0],
+                            x: [0, ((seed2 / 100) - 0.5) * 50, 0],
+                            opacity: [0, 0.6, 0],
+                            scale: [0, 1, 0]
+                          }}
+                          transition={{
+                            duration: 6 + (seed5 / 4) * 4,
+                            repeat: Infinity,
+                            delay: (seed6 / 4) * 5,
+                            ease: "easeInOut"
+                          }}
+                          className="absolute w-1.5 h-1.5 rounded-full hidden sm:block"
+                          style={{
+                            left: `${seed1}%`,
+                            top: `${seed2}%`,
+                            background: `linear-gradient(135deg, 
+                              ${['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981'][seed3]}, 
+                              ${['#60a5fa', '#a78bfa', '#f472b6', '#fbbf24', '#34d399'][seed4]})`
+                          }}
+                        />
+                      );
+                    })}
                   </div>
 
                   <div className="relative z-10 max-w-5xl mx-auto">
@@ -1188,7 +1197,7 @@ export default function HomePage() {
                     <Zap className="w-4 h-4 text-white absolute inset-0 m-auto" />
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/images/ecell-logo.png"
+                      src="/images/logo.jpeg"
                       alt=""
                       onError={(e) => { e.currentTarget.style.opacity = '0'; }}
                       className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 bg-[#020205]"
