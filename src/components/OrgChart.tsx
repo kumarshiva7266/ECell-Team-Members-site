@@ -183,17 +183,6 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
       <FacultyNode />
       <Line />
 
-      {/* ── Level 2: VP Operations (Lavanya) ── */}
-      <NamedNode
-        emoji="⚙️"
-        label="Vice-President (Operations)"
-        name="B. Lavanya"
-        color="purple"
-        member={findMember("Lavanya")}
-        onSelect={onSelectMember}
-        delay={0.1}
-      />
-      <Line />
 
       {/* ── Level 3: Advisory Committee ── */}
       <motion.div
@@ -235,8 +224,22 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
       />
       <Line />
 
-      {/* ── Level 5: VP Outreach ── */}
-      <div className="flex flex-col items-center">
+      {/* ── Level 5: Vice Presidents (Two branches from President) ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.35 }}
+        className="flex flex-col md:flex-row gap-4 md:gap-8 items-center justify-center"
+      >
+        <NamedNode
+          emoji="⚙️"
+          label="Vice-President (Operations)"
+          name="B. Lavanya"
+          color="purple"
+          member={findMember("Lavanya")}
+          onSelect={onSelectMember}
+          delay={0.35}
+        />
         <NamedNode
           emoji="📡"
           label="Vice-President (Outreach)"
@@ -244,10 +247,10 @@ export const OrgChart: React.FC<OrgChartProps> = ({ members, onSelectMember }) =
           color="pink"
           member={findMember("Goutham")}
           onSelect={onSelectMember}
-          delay={0.35}
+          delay={0.4}
         />
-        <Line />
-      </div>
+      </motion.div>
+      <Line />
 
       {/* ── Level 6: Web & Tech ── */}
       <div className="flex flex-col items-center">
