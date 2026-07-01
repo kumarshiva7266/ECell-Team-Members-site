@@ -422,7 +422,7 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
             transition={{ type: "spring", damping: 26, stiffness: 200 }}
-            className="relative z-10 w-full max-w-[1060px] max-h-[92vh] flex flex-col md:flex-row rounded-[22px] overflow-hidden border border-white/[0.08] shadow-[0_30px_100px_rgba(0,0,0,0.9)]"
+            className="relative z-10 w-full max-w-[1060px] max-h-[95vh] md:max-h-[92vh] flex flex-col md:flex-row rounded-[22px] overflow-hidden border border-white/[0.08] shadow-[0_30px_100px_rgba(0,0,0,0.9)]"
             style={{ background: "linear-gradient(135deg, #0d0e1f 0%, #0a0b18 50%, #0f0d20 100%)" }}
           >
 
@@ -430,7 +430,7 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
                 LEFT PANEL — Identity
             ══════════════════════════════ */}
             <div
-              className="relative flex flex-col items-center text-center w-full md:w-[260px] shrink-0 p-6 border-b md:border-b-0 md:border-r border-white/[0.06] overflow-y-auto"
+              className="relative flex flex-col items-center text-center w-full md:w-[260px] shrink-0 p-4 md:p-6 border-b md:border-b-0 md:border-r border-white/[0.06] overflow-y-auto"
               style={{ background: "rgba(255,255,255,0.015)" }}
             >
               {/* Glow blob behind avatar */}
@@ -445,7 +445,7 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
               </button>
 
               {/* ── Avatar ── */}
-              <div className="relative mt-2 mb-5">
+              <div className="relative mt-2 mb-3 md:mb-5">
                 {/* Spinning gradient ring */}
                 <div
                   className="absolute inset-[-3px] rounded-full opacity-80"
@@ -457,7 +457,7 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
                 />
                 <div className="absolute inset-[-3px] rounded-full blur-[6px] opacity-40"
                   style={{ background: "conic-gradient(from 0deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6)" }} />
-                <div className="relative w-[120px] h-[120px] rounded-full overflow-hidden border-2 border-[#0d0e1f] bg-zinc-900">
+                <div className="relative w-[90px] h-[90px] md:w-[120px] md:h-[120px] rounded-full overflow-hidden border-2 border-[#0d0e1f] bg-zinc-900">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={member.img} alt={member.name} className="w-full h-full object-cover" loading="lazy" />
                 </div>
@@ -466,17 +466,17 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
               </div>
 
               {/* ── Name ── */}
-              <h2 className="text-xl font-bold text-white mb-2 leading-tight">{member.name}</h2>
+              <h2 className="text-lg md:text-xl font-bold text-white mb-1 md:mb-2 leading-tight">{member.name}</h2>
 
               {/* ── Role Badge ── */}
-              <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full mb-5 text-white text-xs font-bold shadow-lg"
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 md:px-4 md:py-1.5 rounded-full mb-3 md:mb-5 text-white text-[10px] md:text-xs font-bold shadow-lg"
                 style={{ background: "linear-gradient(135deg, #4f46e5, #7c3aed, #9333ea)" }}>
                 <span>{domainEmoji}</span>
                 <span>{member.role}</span>
               </div>
 
               {/* ── Meta Info ── */}
-              <div className="w-full text-left space-y-2.5 mb-5">
+              <div className="w-full text-left space-y-1.5 md:space-y-2.5 mb-3 md:mb-5">
                 {[
                   { icon: "📚", label: "Department", value: member.dept },
                   { icon: "🎓", label: "Academic Year", value: member.year },
@@ -485,10 +485,10 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
                   { icon: "📍", label: "Location", value: d.location },
                 ].map((row) => (
                   <div key={row.label} className="flex items-start gap-2">
-                    <span className="text-xs mt-0.5 shrink-0">{row.icon}</span>
+                    <span className="text-[10px] md:text-xs mt-0.5 shrink-0">{row.icon}</span>
                     <div className="min-w-0">
-                      <div className="text-[9px] text-zinc-500 uppercase tracking-widest leading-none mb-0.5">{row.label}</div>
-                      <div className="text-[11px] text-zinc-200 font-medium leading-tight truncate">{row.value}</div>
+                      <div className="text-[8px] md:text-[9px] text-zinc-500 uppercase tracking-widest leading-none mb-0.5">{row.label}</div>
+                      <div className="text-[10px] md:text-[11px] text-zinc-200 font-medium leading-tight truncate">{row.value}</div>
                     </div>
                   </div>
                 ))}
@@ -496,23 +496,23 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
                 {/* Availability */}
                 <div className="flex items-center gap-2 pt-1">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-                  <span className="text-[10px] text-emerald-400 font-semibold">{d.availability}</span>
+                  <span className="text-[9px] md:text-[10px] text-emerald-400 font-semibold">{d.availability}</span>
                 </div>
               </div>
 
               {/* ── Connect ── */}
-              <div className="w-full mb-4">
-                <p className="text-[9px] font-bold text-zinc-500 uppercase tracking-widest mb-2 text-left">Connect</p>
+              <div className="w-full mb-3 md:mb-4">
+                <p className="text-[8px] md:text-[9px] font-bold text-zinc-500 uppercase tracking-widest mb-1.5 md:mb-2 text-left">Connect</p>
                 <div className="flex items-center gap-2 flex-wrap">
                   {member.email && (
                     <a href={`mailto:${member.email}`}
-                      className="w-9 h-9 rounded-full flex items-center justify-center bg-gradient-to-br from-red-500 to-orange-500 text-white hover:scale-110 transition-all shadow-lg shadow-red-500/20">
-                      <Mail className="w-3.5 h-3.5" />
+                      className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center bg-gradient-to-br from-red-500 to-orange-500 text-white hover:scale-110 transition-all shadow-lg shadow-red-500/20">
+                      <Mail className="w-3 md:w-3.5 h-3 md:h-3.5" />
                     </a>
                   )}
                   {member.linkedin && (
                     <a href={member.linkedin} target="_blank" rel="noreferrer"
-                      className="w-9 h-9 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-white hover:scale-110 transition-all shadow-lg shadow-blue-500/20">
+                      className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center bg-gradient-to-br from-blue-600 to-blue-800 text-white hover:scale-110 transition-all shadow-lg shadow-blue-500/20">
                       <LinkedInIcon />
                     </a>
                   )}
@@ -557,7 +557,7 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
             {/* ══════════════════════════════
                 RIGHT PANEL — Grid Content
             ══════════════════════════════ */}
-            <div className="flex-1 overflow-y-auto p-4 md:p-5 flex flex-col gap-3"
+            <div className="flex-1 overflow-y-auto p-3 md:p-5 flex flex-col gap-2 md:gap-3"
               style={{ scrollbarWidth: "thin", scrollbarColor: "rgba(255,255,255,0.06) transparent" }}>
 
               {/* Close (desktop) */}
@@ -569,59 +569,59 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
               </button>
 
               {/* ── ROW 1: Professional Summary + Role Impact ── */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
                 {/* Professional Summary */}
-                <div className="col-span-1 md:col-span-2 rounded-[14px] p-4 md:p-4 border border-white/[0.07]"
+                <div className="col-span-1 md:col-span-2 rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <span className="text-purple-400 text-sm md:text-sm">👤</span>
-                    <span className="text-xs md:text-xs font-bold text-white uppercase tracking-wider">Professional Summary</span>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-purple-400 text-xs md:text-sm">👤</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Professional Summary</span>
                   </div>
-                  <p className="text-[13px] md:text-[12px] text-zinc-300 leading-relaxed">{d.professionalSummary}</p>
+                  <p className="text-[11px] md:text-[12px] text-zinc-300 leading-relaxed">{d.professionalSummary}</p>
                 </div>
                 {/* Role Impact */}
-                <div className="col-span-1 rounded-[14px] p-4 border border-amber-500/20"
+                <div className="col-span-1 rounded-[14px] p-3 md:p-4 border border-amber-500/20"
                   style={{ background: "rgba(245,158,11,0.05)" }}>
-                  <div className="flex items-center gap-2 mb-2.5">
-                    <span className="text-amber-400 text-sm">⭐</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Role Impact</span>
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-amber-400 text-xs:text-sm">⭐</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Role Impact</span>
                   </div>
-                  <p className="text-[11px] text-zinc-300 leading-relaxed">{d.roleImpact}</p>
+                  <p className="text-[10px] md:text-[11px] text-zinc-300 leading-relaxed">{d.roleImpact}</p>
                 </div>
               </div>
 
               {/* ── ROW 2: Key Responsibilities + Technical Skills ── */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
                 {/* Key Responsibilities */}
-                <div className="rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-cyan-400 text-sm">✅</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Key Responsibilities</span>
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-cyan-400 text-xs md:text-sm">✅</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Key Responsibilities</span>
                   </div>
-                  <ul className="space-y-1.5">
-                    {d.responsibilities.slice(0, 7).map((r, i) => (
+                  <ul className="space-y-1 md:space-y-1.5">
+                    {d.responsibilities.slice(0, 5).map((r, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <div className="w-3.5 h-3.5 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shrink-0 mt-0.5">
-                          <span className="text-[6px] text-white font-bold">✓</span>
+                        <div className="w-3 h-3 md:w-3.5 md:h-3.5 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                          <span className="text-[5px] md:text-[6px] text-white font-bold">✓</span>
                         </div>
-                        <span className="text-[11px] text-zinc-300 leading-snug">{r}</span>
+                        <span className="text-[10px] md:text-[11px] text-zinc-300 leading-snug">{r}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 {/* Technical Skills */}
-                <div className="rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-green-400 text-sm">{"</>"}</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Technical Skills</span>
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-green-400 text-xs md:text-sm">{"</>"}</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Technical Skills</span>
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1 md:gap-1.5">
                     {d.skills.map((skill, i) => (
                       <span
                         key={i}
-                        className={`px-2.5 py-1 rounded-lg text-[11px] font-semibold border ${CHIP_STYLES[i % CHIP_STYLES.length]}`}
+                        className={`px-2 py-0.5 md:px-2.5 md:py-1 rounded-lg text-[10px] md:text-[11px] font-semibold border ${CHIP_STYLES[i % CHIP_STYLES.length]}`}
                       >
                         {skill}
                       </span>
@@ -631,25 +631,25 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
               </div>
 
               {/* ── ROW 3: Current Projects + Achievements + Interests ── */}
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
                 {/* Current Projects */}
-                <div className="rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-yellow-400 text-sm">📁</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Current Projects</span>
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-yellow-400 text-xs md:text-sm">📁</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Current Projects</span>
                   </div>
-                  <div className="space-y-3">
+                  <div className="space-y-2 md:space-y-3">
                     {d.projectProgresses.slice(0, 3).map((p, i) => (
                       <div key={i}>
-                        <div className="flex items-start gap-2 mb-1.5">
-                          <span className="text-base shrink-0 mt-0.5">{p.icon}</span>
+                        <div className="flex items-start gap-2 mb-1 md:mb-1.5">
+                          <span className="text-sm md:text-base shrink-0 mt-0.5">{p.icon}</span>
                           <div className="min-w-0 flex-1">
-                            <div className="text-[11px] font-semibold text-zinc-200 leading-tight truncate">{p.name}</div>
-                            <div className="text-[9px] text-zinc-500">{p.sublabel}</div>
+                            <div className="text-[10px] md:text-[11px] font-semibold text-zinc-200 leading-tight truncate">{p.name}</div>
+                            <div className="text-[8px] md:text-[9px] text-zinc-500">{p.sublabel}</div>
                           </div>
                           {p.progress !== null && (
-                            <span className="text-[10px] font-bold text-blue-400 shrink-0">{p.progress}%</span>
+                            <span className="text-[9px] md:text-[10px] font-bold text-blue-400 shrink-0">{p.progress}%</span>
                           )}
                         </div>
                         {p.progress !== null ? (
@@ -673,34 +673,34 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
                 </div>
 
                 {/* Achievements */}
-                <div className="rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-amber-400 text-sm">🏆</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Achievements</span>
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-amber-400 text-xs md:text-sm">🏆</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Achievements</span>
                   </div>
-                  <ul className="space-y-2">
-                    {(member.achievements ?? []).slice(0, 6).map((a, i) => (
+                  <ul className="space-y-1.5 md:space-y-2">
+                    {(member.achievements ?? []).slice(0, 4).map((a, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-amber-400 text-xs shrink-0 mt-0.5">⭐</span>
-                        <span className="text-[11px] text-zinc-300 leading-snug">{a}</span>
+                        <span className="text-amber-400 text-[10px] md:text-xs shrink-0 mt-0.5">⭐</span>
+                        <span className="text-[10px] md:text-[11px] text-zinc-300 leading-snug">{a}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Interests */}
-                <div className="rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-pink-400 text-sm">❤️</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Interests</span>
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-pink-400 text-xs md:text-sm">❤️</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Interests</span>
                   </div>
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1 md:gap-1.5">
                     {d.interests.map((item, i) => (
                       <span
                         key={i}
-                        className={`px-2 py-1 rounded-lg text-[10px] font-semibold border ${CHIP_STYLES[(i + 3) % CHIP_STYLES.length]}`}
+                        className={`px-1.5 py-0.5 md:px-2 md:py-1 rounded-lg text-[9px] md:text-[10px] font-semibold border ${CHIP_STYLES[(i + 3) % CHIP_STYLES.length]}`}
                       >
                         {item}
                       </span>
@@ -710,26 +710,26 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
               </div>
 
               {/* ── ROW 4: Stats Bar ── */}
-              <div className="grid grid-cols-6 gap-2">
+              <div className="grid grid-cols-3 md:grid-cols-6 gap-1.5 md:gap-2">
                 {d.stats.map((stat, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center justify-center py-3 px-1 rounded-[14px] border border-white/[0.07] text-center hover:border-white/[0.14] hover:bg-white/[0.03] transition-all"
+                    className="flex flex-col items-center justify-center py-2 md:py-3 px-1 rounded-[14px] border border-white/[0.07] text-center hover:border-white/[0.14] hover:bg-white/[0.03] transition-all"
                     style={{ background: "rgba(255,255,255,0.025)" }}
                   >
-                    <span className="text-lg mb-1">{stat.icon}</span>
-                    <span className="text-base font-bold text-white leading-none">{stat.value}</span>
-                    <span className="text-[8px] text-zinc-500 mt-1 uppercase tracking-wider leading-tight text-center">{stat.label}</span>
+                    <span className="text-sm md:text-lg mb-0.5 md:mb-1">{stat.icon}</span>
+                    <span className="text-sm md:text-base font-bold text-white leading-none">{stat.value}</span>
+                    <span className="text-[7px] md:text-[8px] text-zinc-500 mt-0.5 md:mt-1 uppercase tracking-wider leading-tight text-center">{stat.label}</span>
                   </div>
                 ))}
               </div>
 
               {/* ── ROW 5: Certifications + Education + Professional Links ── */}
-              <div className="grid grid-cols-4 gap-3">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-3">
                 {/* Certifications */}
-                <div className="col-span-2 rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="col-span-1 md:col-span-2 rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center justify-between mb-2 md:mb-3">
                     <div className="flex items-center gap-2">
                       <span className="text-sm">🏅</span>
                       <span className="text-xs font-bold text-white uppercase tracking-wider">Certifications</span>
@@ -749,33 +749,33 @@ export const GlassModal: React.FC<GlassModalProps> = ({ member, isOpen, onClose 
                 </div>
 
                 {/* Education */}
-                <div className="col-span-1 rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="col-span-1 rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-sm">🎓</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Education</span>
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-xs md:text-sm">🎓</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Education</span>
                   </div>
-                  <div className="space-y-1.5">
-                    <div className="text-[12px] font-bold text-zinc-200">{d.education.degree} in {d.education.dept.split("–")[0].trim()}</div>
-                    <div className="text-[11px] text-zinc-400">{d.education.college}</div>
-                    <div className="text-[11px] text-zinc-500 font-mono">CGPA: {d.education.cgpa}</div>
+                  <div className="space-y-1 md:space-y-1.5">
+                    <div className="text-[11px] md:text-[12px] font-bold text-zinc-200">{d.education.degree} in {d.education.dept.split("–")[0].trim()}</div>
+                    <div className="text-[10px] md:text-[11px] text-zinc-400">{d.education.college}</div>
+                    <div className="text-[10px] md:text-[11px] text-zinc-500 font-mono">CGPA: {d.education.cgpa}</div>
                   </div>
                 </div>
 
                 {/* Professional Links */}
-                <div className="col-span-1 rounded-[14px] p-4 border border-white/[0.07]"
+                <div className="col-span-1 rounded-[14px] p-3 md:p-4 border border-white/[0.07]"
                   style={{ background: "rgba(255,255,255,0.03)" }}>
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-sm">🔗</span>
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">Portfolio</span>
+                  <div className="flex items-center gap-2 mb-2 md:mb-3">
+                    <span className="text-xs md:text-sm">🔗</span>
+                    <span className="text-[10px] md:text-xs font-bold text-white uppercase tracking-wider">Portfolio</span>
                   </div>
                   {d.portfolio ? (
                     <a href={d.portfolio} target="_blank" rel="noreferrer"
-                      className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[10px] font-semibold bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 hover:bg-emerald-500/20 transition-colors">
-                      <Globe className="w-3 h-3" />View Portfolio
+                      className="flex items-center gap-1 px-2 py-1 md:px-2.5 md:py-1.5 rounded-lg text-[9px] md:text-[10px] font-semibold bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 hover:bg-emerald-500/20 transition-colors">
+                      <Globe className="w-2.5 md:w-3 h-2.5 md:h-3" />View Portfolio
                     </a>
                   ) : (
-                    <span className="text-[10px] text-zinc-500 italic">No portfolio available</span>
+                    <span className="text-[9px] md:text-[10px] text-zinc-500 italic">No portfolio available</span>
                   )}
                 </div>
               </div>
