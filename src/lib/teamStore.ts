@@ -762,7 +762,7 @@ const INITIAL_MEMBERS: Member[] = [
     name: "Gayathri Ravula",
     role: "Event Management Coordinator",
     domain: "Event Management",
-    dept: "CSE(AI & ML)",
+    dept: "CSE(AI&ML)",
     year: "3rd Year",
     skills: ["Logistics", "Operations", "Planning", "Registration Management", "Database Management", "Attendee Coordination", "Vendor Liaison", "On-site Management", "Problem Solving", "Communication", "Process Improvement", "Team Support"],
     about: "Supporting event operations, managing registrations, and arranging mentor logistics. Handling attendee registrations and managing event databases and check-ins. Coordinating with mentors and speakers for their participation in events. Supporting the event team in logistics planning and on-ground coordination. Ensuring seamless participant experience from registration to event completion.",
@@ -806,7 +806,7 @@ const INITIAL_MEMBERS: Member[] = [
     ],
     leadershipSkills: ["Operations", "Planning", "Database Management", "Communication", "Problem Solving", "Team Support", "Process Improvement", "Attendee Relations"],
     certificates: ["Event Operations", "Database Management", "Customer Service Excellence", "Project Coordination"],
-    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSE(AI & ML)", cgpa: "8.7", gradYear: "2028" },
+    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSE(AI&ML)", cgpa: "8.9", gradYear: "2028" },
     interests: ["Event Operations", "Database Management", "Process Optimization", "Team Coordination", "Customer Experience", "Logistics", "Problem Solving", "Communication"],
     favoriteQuote: "Success is where preparation and opportunity meet.",
     personalWebsite: ""

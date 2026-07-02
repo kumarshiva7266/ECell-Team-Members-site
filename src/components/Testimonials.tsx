@@ -31,7 +31,7 @@ const TESTIMONIALS: Testimonial[] = [
     id: "3",
     name: "Anshu Kumar",
     role: "Advisory Committee Member, CSE",
-    img: "/images/anshu.jpeg",
+    img: "/images/anshu.png",
     quote: "Directing E-Cell frameworks, advising core leaders on growth, and managing long-term venture alignments. Providing strategic advisory support to all E-Cell verticals and leadership team."
   },
   {
@@ -107,7 +107,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: "14",
     name: "Gayathri Ravula",
-    role: "Event Management Coordinator, CSE(CS)",
+    role: "Event Management Coordinator, CSE(AI&ML)",
     img: "/images/gayatri.jpeg",
     quote: "Coordinating event logistics, vendor management, and on-ground execution for E-Cell events. Ensuring seamless event operations and creating memorable experiences for attendees through meticulous planning and execution."
   },
@@ -121,7 +121,7 @@ const TESTIMONIALS: Testimonial[] = [
   {
     id: "16",
     name: "Hansini Gaddam",
-    role: "Social Media & Influencer, Social Media",
+    role: "Social Media & Influencer, Computer Science & Engineering",
     img: "/images/hansini.jpeg",
     quote: "A Computer Science student, content creator, and aspiring entrepreneur with a passion for creativity, branding, and innovation. I enjoy building engaging digital experiences, collaborating on impactful projects, and contributing to E-Cell initiatives that encourage entrepreneurship."
   },
@@ -136,7 +136,7 @@ const TESTIMONIALS: Testimonial[] = [
     id: "18",
     name: "T. Bhuvana",
     role: "Marketing & PR Coordinator, CSE(AI & ML)",
-    img: "/images/tech.jpeg",
+    img: "/images/vp.png",
     quote: "Supporting marketing operations and PR campaigns for E-Cell events. Assisting in content creation, social media management, and building brand awareness across campus and digital platforms."
   }
 ];
