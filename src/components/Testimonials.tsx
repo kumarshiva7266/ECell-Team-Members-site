@@ -134,10 +134,10 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: "18",
-    name: "T. Bhuvana",
-    role: "Marketing & PR Coordinator, CSE(AI & ML)",
-    img: "/images/vp.png",
-    quote: "Supporting marketing operations and PR campaigns for E-Cell events. Assisting in content creation, social media management, and building brand awareness across campus and digital platforms."
+    name: "Mahalakshmi Gundlapally",
+    role: "Marketing & PR Coordinator, CSE",
+    img: "/images/maha.jpeg",
+    quote: "I am Mahalakshmi Gundlapally, a Marketing PR member at E-Cell, responsible for supporting promotional campaigns, public relations, and event outreach. I contribute to enhancing the organization's visibility through effective communication and collaborative teamwork."
   }
 ];
 
