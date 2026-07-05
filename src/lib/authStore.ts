@@ -2,6 +2,8 @@ import { auth, db } from "./firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
   signOut,
   onAuthStateChanged,
   User as FirebaseUser
@@ -129,6 +131,43 @@ export const AuthStore = {
 
       // Log in using the resolved email
       const userCredential = await signInWithEmailAndPassword(auth, emailToUse, password);
+      return userCredential.user;
+    } catch (error: any) {
+      // Check if user doesn't exist
+      if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
+        throw new Error("You don't have an account yet. Please register yourself first.");
+      }
+      throw error;
+    }
+  },
+
+  async googleLogin() {
+    try {
+      const provider = new GoogleAuthProvider();
+      const userCredential = await signInWithPopup(auth, provider);
+      const user = userCredential.user;
+
+      // Check if user document exists in Firestore
+      const userDocRef = doc(db, "users", user.uid);
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (!userDocSnap.exists()) {
+        // Create user profile if it doesn't exist
+        const userProfile: UserProfile = {
+          uid: user.uid,
+          name: user.displayName || "User",
+          gender: "Other",
+          age: "",
+          email: user.email || "",
+          phone: user.phoneNumber || "",
+          college: "",
+          branch: "",
+          year: "1st Year",
+          isAdmin: this.isAdmin(user.email || "")
+        };
+        await setDoc(userDocRef, userProfile);
+      }
+
       return userCredential.user;
     } catch (error) {
       throw error;

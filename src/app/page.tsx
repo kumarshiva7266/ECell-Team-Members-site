@@ -151,6 +151,13 @@ export default function HomePage() {
   }, [activeTab]);
 
   useEffect(() => {
+    if (activeTab !== "Home" && !userProfile) {
+      setActiveTab("Home");
+      setAuthModalOpen(true);
+    }
+  }, [activeTab, userProfile]);
+
+  useEffect(() => {
     const unsub = UpdatesStore.subscribeToUpdates((updatesData) => {
       setUpdates(updatesData);
     });
@@ -228,16 +235,20 @@ export default function HomePage() {
         className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 z-50"
       />
 
-      {/* ── Interactive 3D Particles Background ── */}
-      <ThreeBg />
+      {/* ── Background Video ── */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="fixed inset-0 w-full h-full object-cover z-0"
+        preload="auto"
+      >
+        <source src="/images/home video.mp4" type="video/mp4" />
+      </video>
 
-      {/* ── Background Grid & Blobs ── */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-        <div className="absolute top-[-15%] left-[-10%] w-[700px] h-[700px] rounded-full bg-blue-600/5 blur-[120px] animate-[aurora_18s_ease-in-out_infinite_alternate]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/5 blur-[120px] animate-[aurora_22s_ease-in-out_infinite_alternate-reverse]" />
-        {/* Grid overlay */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
-      </div>
+      {/* ── Background Overlay ── */}
+      <div className="fixed inset-0 bg-black/50 z-0 pointer-events-none" />
 
       {/* ══════════════════════════════
           NAVBAR
@@ -250,13 +261,13 @@ export default function HomePage() {
             <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg relative overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/logo.jpeg"
+                src="/images/crew.png"
                 alt="E-Cell Logo"
                 className="w-full h-full object-cover"
                 loading="eager"
               />
             </div>
-            <span className="font-bold text-xl text-white">E-Cell Crew United</span>
+            <span className="font-bold text-xl text-white">E-Cell<br />Crew United</span>
           </button>
 
           {/* Desktop Links (Liquid Crystal Pill Buttons) */}
@@ -265,8 +276,12 @@ export default function HomePage() {
               <li key={l.tab}>
                 <button
                   onClick={() => {
-                    setActiveTab(l.tab);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    if (l.tab === "Home" || userProfile) {
+                      setActiveTab(l.tab);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    } else {
+                      setAuthModalOpen(true);
+                    }
                   }}
                   className={`liquid-crystal-btn cursor-pointer ${activeTab === l.tab ? "active" : ""}`}
                 >
@@ -312,9 +327,14 @@ export default function HomePage() {
                   <button
                     key={l.tab}
                     onClick={() => {
-                      setActiveTab(l.tab);
-                      setMobileNav(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
+                      if (l.tab === "Home" || userProfile) {
+                        setActiveTab(l.tab);
+                        setMobileNav(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      } else {
+                        setMobileNav(false);
+                        setAuthModalOpen(true);
+                      }
                     }}
                     className={`text-left px-4 py-3 text-sm rounded-xl transition-all ${
                       activeTab === l.tab 
@@ -553,7 +573,14 @@ export default function HomePage() {
                       <motion.button
                         whileHover={{ scale: 1.08, y: -5, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => { setActiveTab("Directory"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                        onClick={() => {
+                          if (userProfile) {
+                            setActiveTab("Directory");
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          } else {
+                            setAuthModalOpen(true);
+                          }
+                        }}
                         className="relative overflow-hidden rounded-full px-8 py-4 font-semibold text-white transition-all duration-300 backdrop-blur-md border border-white/20"
                         style={{
                           background: "linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 50%, rgba(30, 58, 138, 0.8) 100%)",
@@ -574,7 +601,14 @@ export default function HomePage() {
                       <motion.button
                         whileHover={{ scale: 1.08, y: -5, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => { setActiveTab("Leadership"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                        onClick={() => {
+                          if (userProfile) {
+                            setActiveTab("Leadership");
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          } else {
+                            setAuthModalOpen(true);
+                          }
+                        }}
                         className="relative overflow-hidden rounded-full px-8 py-4 font-semibold text-white transition-all duration-300 backdrop-blur-md border border-white/20"
                         style={{
                           background: "linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 50%, rgba(15, 23, 42, 0.9) 100%)",
@@ -814,7 +848,7 @@ export default function HomePage() {
                               alt={m.name} 
                               className="w-full h-full object-cover"
                               loading="lazy"
-                              onError={(e) => { e.currentTarget.src = '/images/logo.jpeg'; }}
+                              onError={(e) => { e.currentTarget.src = '/images/crew.png'; }}
                             />
                           </div>
                           <div className="absolute bottom-1 right-1 w-5 h-5 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 border-2 border-zinc-900 shadow-lg" />
@@ -1216,14 +1250,14 @@ export default function HomePage() {
                     <Zap className="w-4 h-4 text-white absolute inset-0 m-auto" />
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
-                      src="/images/logo.jpeg"
+                      src="/images/crew.png"
                       alt=""
                       onError={(e) => { e.currentTarget.style.opacity = '0'; }}
                       className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 bg-[#020205]"
                     />
                   </div>
                   <span className="font-bold text-xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" style={{ textShadow: "0 0 30px rgba(168, 85, 247, 0.5)" }}>
-                    E-Cell Crew United
+                    E-Cell<br />Crew United
                   </span>
                 </div>
                 <p className="text-sm text-zinc-400 leading-relaxed max-w-xs mb-6">
