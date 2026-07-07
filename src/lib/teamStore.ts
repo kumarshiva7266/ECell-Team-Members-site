@@ -816,7 +816,7 @@ const INITIAL_MEMBERS: Member[] = [
     name: "MALGE BHAVANI",
     role: "Event Manager",
     domain: "Event Management",
-    dept: "Computer Science – Artificial Intelligence and Machine Learning",
+    dept: "Computer Science(AI&ML)",
     year: "1st Year (2025–2029)",
     skills: ["Leadership", "Team Management", "Event Execution", "Startup Ideation", "Collaboration", "Communication", "Strategic Planning", "Project Management", "Agentic AI", "Generative AI", "Google Cloud", "Agri-tech"],
     about: "CSE-AIML first-year student and aspiring woman tech leader with strong leadership and team management skills. As E-Cell Event Manager, I drive end-to-end execution of flagship events and foster collaboration across teams. Punctual and proactive, I thrive on turning startup ideas into impactful campus initiatives. Founder working on own startup ideas including Krishi Co-Pilot (Agri-tech) and sensor-related startup projects.",
@@ -860,7 +860,7 @@ const INITIAL_MEMBERS: Member[] = [
     ],
     leadershipSkills: ["Leadership", "Team Management", "Event Execution", "Strategic Planning", "Communication", "Collaboration", "Project Management", "Startup Ideation"],
     certificates: ["Agentic AI – LinkedIn Learning", "Google Cloud – Skill Up India", "Generative AI Learning Path – Google Cloud Skills Boost"],
-    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSM-A (CSE-AIML)", cgpa: "9.25", gradYear: "2029" },
+    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "CSE(AIML)", cgpa: "9.25", gradYear: "2029" },
     interests: ["Event Operations", "Team Management", "Venue Design", "Crisis Management", "Resource Planning", "Quality Assurance", "Communication", "Leadership"],
     favoriteQuote: "Teamwork makes the dream work.",
     personalWebsite: ""
