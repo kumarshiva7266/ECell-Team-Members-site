@@ -115,7 +115,7 @@ const TESTIMONIALS: Testimonial[] = [
     id: "15",
     name: "Bhavani",
     role: "Creative & Design Team Member, CSM(AI & ML)",
-    img: "/images/logo.jpeg",
+    img: "/images/bhavani.jpeg",
     quote: "Contributing creative designs and visual content for E-Cell campaigns and events. Bringing artistic vision and design expertise to enhance the visual identity of E-Cell initiatives."
   },
   {
