@@ -235,20 +235,8 @@ export default function HomePage() {
         className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 z-50"
       />
 
-      {/* ── Background Video ── */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="fixed inset-0 w-full h-full object-cover z-0"
-        preload="auto"
-      >
-        <source src="/images/home video.mp4" type="video/mp4" />
-      </video>
-
-      {/* ── Background Overlay ── */}
-      <div className="fixed inset-0 bg-black/50 z-0 pointer-events-none" />
+      {/* ── Simple Gradient Background ── */}
+      <div className="fixed inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950 z-0" />
 
       {/* ══════════════════════════════
           NAVBAR

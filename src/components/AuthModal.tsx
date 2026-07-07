@@ -121,49 +121,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             <div className="flex flex-col lg:flex-row min-h-[600px]">
               {/* Left Side - Hero Section (Desktop) */}
               <div className="hidden lg:flex lg:w-1/2 p-12 flex-col justify-center items-center relative overflow-hidden">
-                {/* Background Video */}
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
-                >
-                  <source src="/images/video.mp4" type="video/mp4" />
-                </video>
-                
-                {/* Subtle Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-cyan-500/5 to-purple-500/10" />
-                
-                {/* Animated Liquid Blobs */}
-                <motion.div
-                  animate={{ 
-                    scale: [1, 1.3, 1],
-                    rotate: [0, 180, 360],
-                    x: [0, 30, 0],
-                    y: [0, -30, 0]
-                  }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-20 left-20 w-40 h-40 rounded-full bg-gradient-to-br from-blue-400/40 to-cyan-400/40 blur-2xl"
-                />
-                <motion.div
-                  animate={{ 
-                    scale: [1, 1.4, 1],
-                    rotate: [360, 180, 0],
-                    x: [0, -40, 0],
-                    y: [0, 40, 0]
-                  }}
-                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-32 right-16 w-48 h-48 rounded-full bg-gradient-to-br from-purple-400/40 to-pink-400/40 blur-2xl"
-                />
-                <motion.div
-                  animate={{ 
-                    scale: [1, 1.2, 1],
-                    rotate: [0, -180, -360],
-                  }}
-                  transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gradient-to-br from-cyan-400/30 to-blue-400/30 blur-3xl"
-                />
+                {/* Simple Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-cyan-600/20" />
                 
                 <motion.div
                   initial={{ y: 20, opacity: 0 }}
@@ -171,19 +130,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   transition={{ delay: 0.2 }}
                   className="text-center relative z-10"
                 >
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="inline-flex items-center justify-center w-28 h-28 rounded-full bg-gradient-to-br from-blue-400/60 via-cyan-400/60 to-purple-400/60 backdrop-blur-xl mb-6 shadow-2xl border border-white/20 overflow-hidden"
-                  >
-                    <motion.img
+                  <div className="inline-flex items-center justify-center w-28 h-28 rounded-full bg-gradient-to-br from-blue-400/60 via-cyan-400/60 to-purple-400/60 backdrop-blur-xl mb-6 shadow-2xl border border-white/20 overflow-hidden">
+                    <img
                       src={logoImage}
                       alt="Logo"
                       className="w-20 h-20 object-contain"
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     />
-                  </motion.div>
+                  </div>
                   <h1 className="text-4xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
                     SIGN IN TO YOUR<br />ADVENTURE!
                   </h1>
@@ -212,19 +165,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                   transition={{ delay: 0.2 }}
                   className="lg:hidden text-center mb-8"
                 >
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 mb-4 overflow-hidden"
-                  >
-                    <motion.img
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 mb-4 overflow-hidden">
+                    <img
                       src={logoImage}
                       alt="Logo"
                       className="w-12 h-12 object-contain"
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
                     />
-                  </motion.div>
+                  </div>
                   <h1 className="text-2xl font-bold text-white mb-2">
                     SIGN IN TO YOUR<br />ADVENTURE!
                   </h1>
@@ -322,10 +269,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                         type="submit" 
                         className="w-full bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 text-white font-bold py-4 rounded-xl hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md border border-white/20"
                         style={{ backgroundSize: "200% 200%" }}
-                        whileHover={{ scale: 1.03, backgroundPosition: "100% 100%" }}
+                        whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.95 }}
-                        animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                       >
                         {loading ? (
                           <Loader2 className="w-5 h-5 animate-spin" />
@@ -457,10 +402,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                         type="submit" 
                         className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 text-white font-bold py-4 rounded-xl hover:shadow-xl hover:shadow-purple-500/40 transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-md border border-white/20"
                         style={{ backgroundSize: "200% 200%" }}
-                        whileHover={{ scale: 1.03, backgroundPosition: "100% 100%" }}
+                        whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.95 }}
-                        animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                       >
                         {loading ? (
                           <Loader2 className="w-5 h-5 animate-spin" />

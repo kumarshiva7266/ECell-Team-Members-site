@@ -826,7 +826,7 @@ const INITIAL_MEMBERS: Member[] = [
     instagram: "",
     portfolio: "",
     resumeUrl: "/resume/bhavani.pdf",
-    img: "/images/logo.jpeg",
+    img: "/images/bhavani.jpeg",
     achievements: ["Completed Agentic AI course through LinkedIn Learning", "Earned Google Cloud certification via Skill Up India", "Secured 9.25 CGPA in 1st semester of B.Tech", "Built Krishi Co-Pilot – Agri-tech project using Generative AI"],
     isCore: true,
     memberSince: "July 2026",
