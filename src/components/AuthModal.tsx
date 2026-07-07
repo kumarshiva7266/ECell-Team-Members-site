@@ -165,17 +165,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 >
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                     className="inline-flex items-center justify-center w-28 h-28 rounded-full bg-gradient-to-br from-blue-400/60 via-cyan-400/60 to-purple-400/60 backdrop-blur-xl mb-6 shadow-2xl border border-white/20 overflow-hidden will-change-transform"
                     style={{ willChange: 'transform' }}
                   >
-                    <motion.img
+                    <img
                       src={logoImage}
                       alt="Logo"
                       className="w-20 h-20 object-contain"
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                      style={{ willChange: 'transform' }}
                     />
                   </motion.div>
                   <h1 className="text-4xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
@@ -208,17 +205,14 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 >
                   <motion.div
                     animate={{ rotate: 360 }}
-                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
                     className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 mb-4 overflow-hidden will-change-transform"
                     style={{ willChange: 'transform' }}
                   >
-                    <motion.img
+                    <img
                       src={logoImage}
                       alt="Logo"
                       className="w-12 h-12 object-contain"
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                      style={{ willChange: 'transform' }}
                     />
                   </motion.div>
                   <h1 className="text-2xl font-bold text-white mb-2">
