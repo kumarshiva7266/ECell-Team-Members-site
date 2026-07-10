@@ -1281,9 +1281,9 @@ export default function HomePage() {
               <div>
                 <h4 className="text-sm font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4" style={{ textShadow: "0 0 20px rgba(236, 72, 153, 0.3)" }}>Contact Info</h4>
                 <div className="flex flex-col gap-2.5">
-                  <a href="mailto:ecell@college.ac.in" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">ecell@college.ac.in</a>
-                  <a href="tel:+911234567890" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">+91 12345 67890</a>
-                  <p className="text-sm text-zinc-500 px-2 py-1">Campus Block-C, Room 204</p>
+                  <a href="mailto:crewunited.ecellpec@gmail.com" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">crewunited.ecellpec@gmail.com</a>
+                  <a href="tel:+91-7266990591,+91-8121531260" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">+91 7266990591, +91 8121531260</a>
+                  <p className="text-sm text-zinc-500 px-2 py-1">Pallavi Engineering College,Hyderabad-501505</p>
                 </div>
               </div>
             </div>

@@ -28,6 +28,19 @@ export const Gallery: React.FC = () => {
   const [items, setItems] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Prevent body scroll when modal is open and scroll to top
+  useEffect(() => {
+    if (selectedItem) {
+      document.body.style.overflow = 'hidden';
+      window.scrollTo(0, 0);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedItem]);
+
   useEffect(() => {
     const fetchGallery = async () => {
       try {
@@ -114,22 +127,23 @@ export const Gallery: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-black/95 backdrop-blur-md"
+          className="fixed inset-0 z-[100] flex flex-col items-center bg-black/95 backdrop-blur-xl overflow-hidden"
           onClick={() => setSelectedItem(null)}
         >
-          {/* Close button on the side */}
+          {/* Close button - Top Right */}
           <button
             onClick={(e) => {
               e.stopPropagation();
               setSelectedItem(null);
             }}
-            className="absolute top-4 right-4 md:top-8 md:right-8 p-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 text-white cursor-pointer z-10 transition-all hover:scale-110"
+            className="absolute top-6 right-6 z-50 p-3 rounded-full bg-red-500/90 hover:bg-red-600 border border-white/20 text-white cursor-pointer transition-all hover:scale-110 shadow-lg shadow-red-500/30"
           >
             <X className="w-6 h-6" />
           </button>
           
+          {/* Content Container */}
           <div 
-            className="relative max-w-5xl max-h-[90vh] w-full flex items-center justify-center"
+            className="relative flex items-start justify-center w-full h-full p-8 pt-20"
             onClick={(e) => e.stopPropagation()}
           >
             {selectedItem.type === "image" ? (
@@ -137,18 +151,22 @@ export const Gallery: React.FC = () => {
               <img
                 src={selectedItem.url}
                 alt={selectedItem.title}
-                className="max-w-full max-h-[85vh] rounded-[20px] border border-white/10 shadow-2xl object-contain"
+                className="max-w-full max-h-[70vh] object-contain rounded-2xl border border-white/10 shadow-2xl"
               />
             ) : (
               <video
                 src={selectedItem.url}
                 controls
                 autoPlay
-                className="max-w-full max-h-[85vh] rounded-[20px] border border-white/10 shadow-2xl"
+                className="max-w-full max-h-[70vh] rounded-2xl border border-white/10 shadow-2xl"
               />
             )}
-            <div className="absolute bottom-[-50px] left-0 right-0 text-center text-sm font-semibold text-zinc-300">
-              {selectedItem.title} &middot; {selectedItem.category}
+            
+            {/* Title overlay at bottom */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full border border-white/10">
+              <p className="text-white font-semibold text-sm">
+                {selectedItem.title} <span className="text-zinc-400 mx-2">•</span> {selectedItem.category}
+              </p>
             </div>
           </div>
         </motion.div>
