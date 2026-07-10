@@ -1234,6 +1234,152 @@ export default function HomePage() {
             {activeTab === "Contact" && (
               <Contact />
             )}
+
+            {/* ────────── PRIVACY POLICY VIEW ────────── */}
+            {activeTab === "Privacy" && (
+              <section className="py-16 max-w-4xl mx-auto px-4 md:px-6 w-full flex-1">
+                <div className="text-center mb-12">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-400 mb-4 block font-mono">Legal</span>
+                  <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+                    Privacy Policy
+                  </h2>
+                  <p className="text-zinc-400 max-w-2xl mx-auto">
+                    Last updated: July 2026
+                  </p>
+                </div>
+                <div className="space-y-8 text-zinc-300">
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">1. Information We Collect</h3>
+                    <p className="mb-4">E-Cell Crew United collects information you provide directly, including:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Name and contact information (email, phone)</li>
+                      <li>Academic details (department, year, college)</li>
+                      <li>Profile information (bio, skills, achievements)</li>
+                      <li>Social media links (LinkedIn, GitHub, Instagram)</li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">2. How We Use Your Information</h3>
+                    <p className="mb-4">We use your information to:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Manage member directory and profiles</li>
+                      <li>Communicate about events and opportunities</li>
+                      <li>Connect members with mentors and resources</li>
+                      <li>Improve our services and user experience</li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">3. Data Security</h3>
+                    <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">4. Your Rights</h3>
+                    <p className="mb-4">You have the right to:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Access and update your personal information</li>
+                      <li>Request deletion of your data</li>
+                      <li>Opt-out of communications</li>
+                      <li>Withdraw consent at any time</li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">5. Contact Us</h3>
+                    <p>For privacy-related questions, contact us at: crewunited.ecellpec@gmail.com</p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* ────────── TERMS OF SERVICE VIEW ────────── */}
+            {activeTab === "Terms" && (
+              <section className="py-16 max-w-4xl mx-auto px-4 md:px-6 w-full flex-1">
+                <div className="text-center mb-12">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-400 mb-4 block font-mono">Legal</span>
+                  <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+                    Terms of Service
+                  </h2>
+                  <p className="text-zinc-400 max-w-2xl mx-auto">
+                    Last updated: July 2026
+                  </p>
+                </div>
+                <div className="space-y-8 text-zinc-300">
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">1. Acceptance of Terms</h3>
+                    <p>By accessing and using E-Cell Crew United, you accept and agree to be bound by these Terms of Service.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">2. Membership Requirements</h3>
+                    <p className="mb-4">To join E-Cell Crew United, you must:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Be a currently enrolled student at Pallavi Engineering College</li>
+                      <li>Provide accurate and complete information</li>
+                      <li>Commit to active participation in E-Cell activities</li>
+                      <li>Adhere to the code of conduct</li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">3. Code of Conduct</h3>
+                    <p className="mb-4">Members are expected to:</p>
+                    <ul className="list-disc list-inside space-y-2 ml-4">
+                      <li>Treat all members with respect and professionalism</li>
+                      <li>Contribute positively to the community</li>
+                      <li>Represent E-Cell appropriately in external activities</li>
+                      <li>Maintain confidentiality of sensitive information</li>
+                    </ul>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">4. Intellectual Property</h3>
+                    <p>All content, including logos, designs, and materials, remains the property of E-Cell Crew United. Members may not use E-Cell branding for personal projects without permission.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-xl font-bold text-white mb-4">5. Termination</h3>
+                    <p>E-Cell reserves the right to terminate membership for violation of these terms, code of conduct, or inactivity.</p>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* ────────── FAQ VIEW ────────── */}
+            {activeTab === "FAQ" && (
+              <section className="py-16 max-w-4xl mx-auto px-4 md:px-6 w-full flex-1">
+                <div className="text-center mb-12">
+                  <span className="text-xs font-semibold uppercase tracking-[0.2em] text-violet-400 mb-4 block font-mono">Help</span>
+                  <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
+                    Frequently Asked Questions
+                  </h2>
+                </div>
+                <div className="space-y-4">
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-lg font-bold text-white mb-3">How do I join E-Cell Crew United?</h3>
+                    <p className="text-zinc-300">You can join by signing up on our website. Fill out the registration form with your details, and our team will review your application. Membership is open to all students of Pallavi Engineering College.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-lg font-bold text-white mb-3">What are the benefits of joining?</h3>
+                    <p className="text-zinc-300">Members get access to mentorship programs, startup resources, networking events, hackathons, workshops, and opportunities to connect with industry leaders and investors.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-lg font-bold text-white mb-3">Are there any membership fees?</h3>
+                    <p className="text-zinc-300">No, E-Cell Crew United membership is completely free for all students. We believe entrepreneurship should be accessible to everyone.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-lg font-bold text-white mb-3">Can I join if I don't have a startup idea?</h3>
+                    <p className="text-zinc-300">Absolutely! E-Cell is here to help you develop entrepreneurial skills. We provide resources and guidance to help you discover and nurture your ideas.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-lg font-bold text-white mb-3">How can I get involved in events?</h3>
+                    <p className="text-zinc-300">Check our Updates section for upcoming events. You can register through our website or contact the event management team directly for more information.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-lg font-bold text-white mb-3">How do I update my profile information?</h3>
+                    <p className="text-zinc-300">Log in to your account and navigate to the Profile section. You can update your personal information, skills, achievements, and social media links at any time.</p>
+                  </div>
+                  <div className="glass-card p-6 rounded-2xl">
+                    <h3 className="text-lg font-bold text-white mb-3">Who can I contact for support?</h3>
+                    <p className="text-zinc-300">For any queries, reach out to us at crewunited.ecellpec@gmail.com or call +91 7266990591 / +91 8121531260. Our team is happy to help!</p>
+                  </div>
+                </div>
+              </section>
+            )}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -1244,49 +1390,73 @@ export default function HomePage() {
       <footer className="border-t border-white/[0.05] py-12 relative z-10 backdrop-blur-xl bg-black/30">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           {activeTab === "Home" && (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-              <div className="md:col-span-2">
-                <div className="flex items-center gap-2.5 mb-4">
-                  <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden shadow-lg shadow-purple-500/30">
-                    <Zap className="w-4 h-4 text-white absolute inset-0 m-auto" />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src="/images/crew.png"
-                      alt=""
-                      onError={(e) => { e.currentTarget.style.opacity = '0'; }}
-                      className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 bg-[#020205]"
-                    />
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div className="md:col-span-2">
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden shadow-lg shadow-purple-500/30">
+                      <Zap className="w-4 h-4 text-white absolute inset-0 m-auto" />
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/images/crew.png"
+                        alt=""
+                        onError={(e) => { e.currentTarget.style.opacity = '0'; }}
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 bg-[#020205]"
+                      />
+                    </div>
+                    <span className="font-bold text-xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" style={{ textShadow: "0 0 30px rgba(168, 85, 247, 0.5)" }}>
+                      E-Cell<br />Crew United
+                    </span>
                   </div>
-                  <span className="font-bold text-xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent" style={{ textShadow: "0 0 30px rgba(168, 85, 247, 0.5)" }}>
-                    E-Cell<br />Crew United
-                  </span>
+                  <p className="text-sm text-zinc-400 leading-relaxed max-w-xs mb-6">
+                    Empowering students to think, build, and lead. We foster the entrepreneurial spirit across every department.
+                  </p>
+                  
+                  {/* Social Media Links */}
+                  <div className="flex gap-3">
+                    <a href="https://www.linkedin.com/company/crewunited-ecellpec/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-blue-500/20 hover:border-blue-500/40 transition-all cursor-pointer">
+                      <svg className="w-5 h-5 text-zinc-400 hover:text-blue-400" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/ecell.pec?igsh=MWFqdGV0NWE3ZXhpMA==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-pink-500/20 hover:border-pink-500/40 transition-all cursor-pointer">
+                      <svg className="w-5 h-5 text-zinc-400 hover:text-pink-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://youtube.com/@malvem...123?si=pJPba9u785MmA5TT" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-red-500/20 hover:border-red-500/40 transition-all cursor-pointer">
+                      <svg className="w-5 h-5 text-zinc-400 hover:text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                  </div>
                 </div>
-                <p className="text-sm text-zinc-400 leading-relaxed max-w-xs mb-6">
-                  Empowering students to think, build, and lead. We foster the entrepreneurial spirit across every department.
-                </p>
+
+                <div>
+                  <h4 className="text-sm font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4" style={{ textShadow: "0 0 20px rgba(168, 85, 247, 0.3)" }}>Quick Links</h4>
+                  <div className="flex flex-col gap-2.5">
+                    {NAV_LINKS.slice(0, 4).map(l => (
+                      <button key={l.tab} onClick={() => { setActiveTab(l.tab); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                        className="text-left text-sm text-zinc-400 hover:text-white transition-colors cursor-pointer hover:shadow-lg hover:shadow-purple-500/20 px-2 py-1 rounded-lg hover:bg-white/5">
+                        {l.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-sm font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4" style={{ textShadow: "0 0 20px rgba(236, 72, 153, 0.3)" }}>Contact Info</h4>
+                  <div className="flex flex-col gap-2.5">
+                    <a href="mailto:crewunited.ecellpec@gmail.com" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">crewunited.ecellpec@gmail.com</a>
+                    <a href="tel:+91-7266990591,+91-8121531260" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">+91 7266990591, +91 8121531260</a>
+                    <p className="text-sm text-zinc-500 px-2 py-1">Pallavi Engineering College,Hyderabad-501505</p>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <h4 className="text-sm font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4" style={{ textShadow: "0 0 20px rgba(168, 85, 247, 0.3)" }}>Directory Views</h4>
-                <div className="flex flex-col gap-2.5">
-                  {NAV_LINKS.slice(0, 4).map(l => (
-                    <button key={l.tab} onClick={() => { setActiveTab(l.tab); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                      className="text-left text-sm text-zinc-400 hover:text-white transition-colors cursor-pointer hover:shadow-lg hover:shadow-purple-500/20 px-2 py-1 rounded-lg hover:bg-white/5">
-                      {l.label}
-                    </button>
-                  ))}
+              {/* Additional Footer Links */}
+              <div className="border-t border-white/[0.05] pt-8 mb-8">
+                <div className="flex flex-wrap gap-6 justify-center">
+                  <button onClick={() => { setActiveTab("Privacy"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-xs text-zinc-500 hover:text-white transition-colors cursor-pointer">Privacy Policy</button>
+                  <button onClick={() => { setActiveTab("Terms"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-xs text-zinc-500 hover:text-white transition-colors cursor-pointer">Terms of Service</button>
+                  <button onClick={() => { setActiveTab("FAQ"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-xs text-zinc-500 hover:text-white transition-colors cursor-pointer">FAQ</button>
                 </div>
               </div>
-
-              <div>
-                <h4 className="text-sm font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4" style={{ textShadow: "0 0 20px rgba(236, 72, 153, 0.3)" }}>Contact Info</h4>
-                <div className="flex flex-col gap-2.5">
-                  <a href="mailto:crewunited.ecellpec@gmail.com" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">crewunited.ecellpec@gmail.com</a>
-                  <a href="tel:+91-7266990591,+91-8121531260" className="text-sm text-zinc-400 hover:text-white transition-colors hover:shadow-lg hover:shadow-blue-500/20 px-2 py-1 rounded-lg hover:bg-white/5">+91 7266990591, +91 8121531260</a>
-                  <p className="text-sm text-zinc-500 px-2 py-1">Pallavi Engineering College,Hyderabad-501505</p>
-                </div>
-              </div>
-            </div>
+            </>
           )}
 
           <div className={`flex items-center justify-between flex-wrap gap-4 ${activeTab === "Home" ? "pt-8 border-t border-white/[0.04]" : ""}`}>
