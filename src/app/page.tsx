@@ -292,79 +292,36 @@ export default function HomePage() {
             ))}
           </ul>
 
-          <div className="hidden lg:flex items-center gap-2">
+          {/* Top Right Profile / Login Actions */}
+          <div className="flex items-center gap-3">
             {userProfile?.isAdmin && (
-              <button onClick={() => { setActiveTab("Admin"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="liquid-crystal-btn cursor-pointer">
+              <button 
+                onClick={() => { setActiveTab("Admin"); window.scrollTo({ top: 0, behavior: "smooth" }); }} 
+                className="liquid-crystal-btn cursor-pointer text-xs py-1.5 px-3 md:py-2 md:px-4"
+              >
                 Admin
               </button>
             )}
+
             {userProfile ? (
-              <button onClick={() => { setActiveTab("Profile"); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="liquid-crystal-btn cursor-pointer bg-gradient-to-r from-emerald-500/20 to-teal-600/20 border-emerald-500/30 text-emerald-400">
-                Profile
+              <button
+                onClick={() => { setActiveTab("Profile"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 border border-white/20 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_15px_rgba(79,140,255,0.35)] cursor-pointer hover:scale-105 active:scale-95 transition-all overflow-hidden"
+                title="Go to Profile"
+              >
+                {userProfile.name ? userProfile.name.charAt(0).toUpperCase() : "U"}
               </button>
             ) : (
-              <button onClick={() => setAuthModalOpen(true)} className="liquid-crystal-btn cursor-pointer">
-                Login / Sign Up
+              <button
+                onClick={() => setAuthModalOpen(true)}
+                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white cursor-pointer hover:scale-105 active:scale-95 transition-all shadow-md"
+                title="Login / Sign Up"
+              >
+                <Users className="w-5 h-5" />
               </button>
             )}
           </div>
-
-          <button onClick={() => setMobileNav(p => !p)} className="lg:hidden liquid-crystal-btn cursor-pointer text-zinc-400">
-            {mobileNavOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileNavOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              className="lg:hidden border-t border-white/5 overflow-hidden bg-[#030303]"
-            >
-              <div className="px-4 py-4 flex flex-col gap-1.5">
-                {NAV_LINKS.map(l => (
-                  <button
-                    key={l.tab}
-                    onClick={() => {
-                      if (l.tab === "Home" || userProfile) {
-                        setActiveTab(l.tab);
-                        setMobileNav(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      } else {
-                        setMobileNav(false);
-                        setAuthModalOpen(true);
-                      }
-                    }}
-                    className={`text-left px-4 py-3 text-sm rounded-xl transition-all ${
-                      activeTab === l.tab 
-                        ? "bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-white border border-blue-500/20" 
-                        : "text-zinc-300 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {l.label}
-                  </button>
-                ))}
-                
-                {userProfile?.isAdmin && (
-                  <button onClick={() => { setActiveTab("Admin"); setMobileNav(false); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-left px-4 py-3 text-sm rounded-xl transition-all text-red-400 font-bold hover:bg-white/5 border border-red-500/20 bg-red-500/10 mt-2">
-                    Admin
-                  </button>
-                )}
-                {userProfile ? (
-                  <button onClick={() => { setActiveTab("Profile"); setMobileNav(false); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="text-left px-4 py-3 text-sm rounded-xl transition-all text-emerald-400 font-bold hover:bg-white/5 border border-emerald-500/20 bg-emerald-500/10 mt-2">
-                    Profile
-                  </button>
-                ) : (
-                  <button onClick={() => { setAuthModalOpen(true); setMobileNav(false); }} className="text-left px-4 py-3 text-sm rounded-xl transition-all text-white font-bold hover:bg-white/5 border border-white/10 mt-2">
-                    Login / Sign Up
-                  </button>
-                )}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
 
       {/* ══════════════════════════════
@@ -1477,12 +1434,73 @@ export default function HomePage() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed bottom-8 right-6 p-3.5 rounded-2xl glass-panel border-white/10 hover:border-white/20 text-zinc-300 hover:text-white shadow-lg z-40 cursor-pointer transition-all hover:scale-110"
+            className="fixed bottom-24 lg:bottom-8 right-6 p-3.5 rounded-2xl glass-panel border-white/10 hover:border-white/20 text-zinc-300 hover:text-white shadow-lg z-40 cursor-pointer transition-all hover:scale-110"
           >
             <ChevronUp className="w-5 h-5" />
           </motion.button>
         )}
       </AnimatePresence>
+
+      {/* ── Mobile Bottom Floating Navbar (iPhone Gallery Style Scrubber) ── */}
+      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-40">
+        <div className="glass-panel backdrop-blur-xl bg-black/40 border border-white/10 rounded-full px-4 py-2 flex items-center justify-between shadow-2xl overflow-hidden relative">
+          <div className="flex items-center gap-2 overflow-x-auto py-1 w-full scrollbar-none snap-x snap-mandatory">
+            {NAV_LINKS.map(l => (
+              <button
+                key={l.tab}
+                onClick={() => {
+                  if (l.tab === "Home" || userProfile) {
+                    setActiveTab(l.tab);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    setAuthModalOpen(true);
+                  }
+                }}
+                className={`snap-center flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
+                  activeTab === l.tab
+                    ? "bg-white/10 border border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)] scale-105"
+                    : "text-zinc-400 hover:text-zinc-200"
+                }`}
+              >
+                {l.tab === "Leadership" ? "Core" : l.label}
+              </button>
+            ))}
+
+            {userProfile?.isAdmin && (
+              <button
+                onClick={() => { setActiveTab("Admin"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                className={`snap-center flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
+                  activeTab === "Admin"
+                    ? "bg-red-500/20 border border-red-500/30 text-red-400 scale-105"
+                    : "text-red-400/70 hover:text-red-400"
+                }`}
+              >
+                Admin
+              </button>
+            )}
+
+            {userProfile ? (
+              <button
+                onClick={() => { setActiveTab("Profile"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                className={`snap-center flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
+                  activeTab === "Profile"
+                    ? "bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 scale-105"
+                    : "text-emerald-400/70 hover:text-emerald-400"
+                }`}
+              >
+                Profile
+              </button>
+            ) : (
+              <button
+                onClick={() => setAuthModalOpen(true)}
+                className="snap-center flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-zinc-400 hover:text-zinc-200"
+              >
+                Login
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* ── Member Profile Modal ── */}
       <GlassModal isOpen={modalOpen} onClose={closeModal} member={selectedMember} />

@@ -921,114 +921,7 @@ const INITIAL_MEMBERS: Member[] = [
     favoriteQuote: "Content is king, but engagement is queen.",
     personalWebsite: ""
   },
-  {
-    id: "17",
-    name: "Hansini Gaddam",
-    role: "Social Media & Influencer",
-    domain: "Social Media",
-    dept: "Computer Science & Engineering",
-    year: "3rd Year",
-    skills: ["Content Creation", "Digital Branding", "Social Media Strategy", "UGC Content", "AI & Streamlit", "Entrepreneurship", "Creative Branding", "Visual Design", "Trend Analysis", "Influencer Marketing", "Community Building", "Photography"],
-    about: "A Computer Science student, content creator, and aspiring entrepreneur with a passion for creativity, branding, and innovation. I enjoy building engaging digital experiences, collaborating on impactful projects, and contributing to E-Cell initiatives that encourage entrepreneurship.",
-    email: "hansinig163@gmail.com",
-    linkedin: "https://www.linkedin.com/in/g-hansini-1497b1316?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-    github: "https://github.com/hansinig163",
-    instagram: "https://instagram.com/hunivers_.x",
-    portfolio: "",
-    resumeUrl: "/resume/hansini.pdf",
-    img: "/images/hansini.jpeg",
-    achievements: ["Built Instagram community of 6,000+ followers", "Collaborated with multiple beauty, fashion, and lifestyle brands", "Developed AI and Streamlit-based projects during AI internship", "Actively involved in entrepreneurship and creative branding initiatives"],
-    isCore: true,
-    memberSince: "June 2026",
-    status: "Core Executive Member",
-    location: "Hyderabad, Telangana",
-    availability: "Available for Collaboration",
-    responsibilities: [
-      "Manage content calendar posts and scheduling",
-      "Coordinate visual grid layouts across social platforms",
-      "Track daily updates and social media performance",
-      "Plan and schedule content across multiple platforms",
-      "Create visually appealing posts using design tools",
-      "Monitor social media trends and adapt strategy",
-      "Track performance metrics and provide insights",
-      "Ensure consistent brand messaging across channels"
-    ],
-    roleImpact: "The Social Media & Influencer team member ensures consistent and engaging social media presence — managing content calendars, creating visual posts, tracking performance, and optimizing strategy to maximize reach and engagement.",
-    projectProgresses: [
-      { name: "Handmade Brand - Crochet Products & Customized Tumblers", progress: 85 },
-      { name: "Lifestyle & UGC Content Creation", progress: 80 },
-      { name: "AI & Streamlit Projects", progress: 75 },
-      { name: "Brand Collaborations", progress: 70 }
-    ],
-    stats: [
-      { label: "Instagram Followers", value: "6K+", icon: "�" },
-      { label: "Brand Collaborations", value: "10+", icon: "🤝" },
-      { label: "CGPA", value: "9.00", icon: "📊" },
-      { label: "Years in E-Cell", value: "1", icon: "⭐" },
-      { label: "Projects Built", value: "3+", icon: "💻" },
-      { label: "Content Created", value: "100+", icon: "✍️" }
-    ],
-    leadershipSkills: ["Content Creation", "Digital Branding", "Social Media Strategy", "UGC Content", "Entrepreneurship", "Creative Branding", "Community Building", "Visual Design"],
-    certificates: ["Summer of AI Internship Certificate", "Campus Ambassador Certification of Grow Your Skills"],
-    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "Computer Science & Engineering", cgpa: "9.00", gradYear: "2028" },
-    interests: ["Content Creation", "Digital Branding", "Social Media", "Entrepreneurship", "Creative Branding", "Photography", "AI & Technology", "Innovation"],
-    favoriteQuote: "Consistency is key to social media success.",
-    personalWebsite: ""
-  },
-  {
-    id: "18",
-    name: "P. Varshitha Reddy",
-    role: "Social Media & Influencer Team Member",
-    domain: "Social Media & Influencer",
-    dept: "Computer Science & Engineering (CSE)",
-    year: "3rd Year",
-    skills: ["Software Development", "Artificial Intelligence", "Prompt Engineering", "Digital Branding", "Content Creation", "Full-Stack Web Development", "C Programming", "Python", "Java", "HTML", "Social Media Strategy", "Innovation"],
-    about: "Motivated Computer Science Engineering student with an 8.76 CGPA and a strong interest in software development, Artificial Intelligence, Prompt Engineering, and entrepreneurship. Passionate about digital branding, content creation, and innovation. As a Social Media & Influencer Team Member, I aim to strengthen E-Cell's digital presence through creative storytelling and impactful content.",
-    email: "varshithareddy1208@gmail.com",
-    linkedin: "https://www.linkedin.com/in/varshitha-reddy-pinnapu-reddy-7b2a65323",
-    github: "https://github.com/codebyvarsh",
-    instagram: "https://www.instagram.com/varshithareddyy.yy",
-    portfolio: "",
-    resumeUrl: "/resume/varshitha.pdf",
-    img: "/images/varshitha.jpeg",
-    achievements: ["Selected as Social Media & Influencer Team Member in College E-Cell", "Active member of CSI Photography Team", "Co-Founder of Knot & Sip startup"],
-    isCore: true,
-    memberSince: "July 2026",
-    status: "Core Executive Member",
-    location: "Hyderabad, Telangana",
-    availability: "Available for Collaboration",
-    responsibilities: [
-      "Analyze viral trends and content curation strategies",
-      "Write professional articles on entrepreneurship and innovation",
-      "Build and nurture professional networks on LinkedIn",
-      "Create thought leadership content for E-Cell's growth",
-      "Write articles highlighting E-Cell's achievements and member stories",
-      "Engage with industry professionals and expand digital footprint",
-      "Manage LinkedIn operations and professional branding",
-      "Track LinkedIn analytics and optimize content strategy"
-    ],
-    roleImpact: "The Social Media & Influencer Team Member strengthens E-Cell's professional presence — analyzing trends, creating thought leadership content, building LinkedIn networks, and engaging with industry professionals to expand the cell's influence.",
-    projectProgresses: [
-      { name: "Knot & Sip - Handmade Crochet Startup", progress: 85 },
-      { name: "Full-Stack Web Development Learning", progress: 70 },
-      { name: "Digital Branding & Content Creation", progress: 65 },
-      { name: "AI & Prompt Engineering Projects", progress: 50 }
-    ],
-    stats: [
-      { label: "CGPA", value: "8.76", icon: "📊" },
-      { label: "Projects Built", value: "3+", icon: "💻" },
-      { label: "Programming Languages", value: "4", icon: "�" },
-      { label: "Years in E-Cell", value: "1", icon: "⭐" },
-      { label: "Startup Co-Founded", value: "1", icon: "🚀" },
-      { label: "Certifications", value: "2", icon: "�" }
-    ],
-    leadershipSkills: ["Software Development", "Artificial Intelligence", "Digital Branding", "Content Creation", "Social Media Strategy", "Innovation", "Entrepreneurship", "Team Collaboration"],
-    certificates: ["Introduction to Generative AI Studio", "Campus Ambassador – Grow Your Skills"],
-    education: { degree: "B.Tech", college: "Pallavi Engineering College", dept: "Computer Science & Engineering (CSE)", cgpa: "8.76", gradYear: "2028" },
-    interests: ["Software Development", "Artificial Intelligence", "Prompt Engineering", "Digital Branding", "Content Creation", "Entrepreneurship", "Photography", "Innovation"],
-    favoriteQuote: "Your personal brand is what people say about you when you're not in the room.",
-    personalWebsite: ""
-  },
+
 ];
 
 const INITIAL_EVENTS: EventItem[] = [
@@ -1064,7 +957,7 @@ export const TeamService = {
       // Force cache reset to ensure all 18 members load
       localStorage.removeItem("ecell_members");
       localStorage.removeItem("ecell_data_version");
-      const DATA_VERSION = "v5";
+      const DATA_VERSION = "v6";
       localStorage.setItem("ecell_data_version", DATA_VERSION);
       localStorage.setItem("ecell_members", JSON.stringify(INITIAL_MEMBERS));
       return INITIAL_MEMBERS;

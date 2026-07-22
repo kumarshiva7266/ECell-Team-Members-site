@@ -118,20 +118,7 @@ const TESTIMONIALS: Testimonial[] = [
     img: "/images/bhavani.jpeg",
     quote: "Contributing creative designs and visual content for E-Cell campaigns and events. Bringing artistic vision and design expertise to enhance the visual identity of E-Cell initiatives."
   },
-  {
-    id: "16",
-    name: "Hansini Gaddam",
-    role: "Social Media & Influencer, Computer Science & Engineering",
-    img: "/images/hansini.jpeg",
-    quote: "A Computer Science student, content creator, and aspiring entrepreneur with a passion for creativity, branding, and innovation. I enjoy building engaging digital experiences, collaborating on impactful projects, and contributing to E-Cell initiatives that encourage entrepreneurship."
-  },
-  {
-    id: "17",
-    name: "P. Varshitha Reddy",
-    role: "Social Media & Influencer Team Member, CSE",
-    img: "/images/varshitha.jpeg",
-    quote: "Motivated Computer Science Engineering student with an 8.76 CGPA and a strong interest in software development, Artificial Intelligence, Prompt Engineering, and entrepreneurship. Passionate about digital branding, content creation, and innovation."
-  },
+
   {
     id: "18",
     name: "Mahalakshmi Gundlapally",
