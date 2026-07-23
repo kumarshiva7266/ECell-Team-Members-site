@@ -117,7 +117,7 @@ const INITIAL_MEMBERS: Member[] = [
     github: "https://github.com/kumarshiva7266",
     instagram: "https://www.instagram.com/_s.h.i.v.a1/",
     portfolio: "https://shivaportfolio01.vercel.app/",
-    resumeUrl: "/resume/shivaprasad.pdf",
+    resumeUrl: "/resume/shivaresume.pdf",
     img: "/images/tech.jpeg",
     achievements: ["Developed E-Cell SPA Core and Admin Sync Systems", "Organized 10+ technical workshops", "Built startup registration platform", "Led a team of 4 developers", "Automated event registration process"],
     isCore: true,
