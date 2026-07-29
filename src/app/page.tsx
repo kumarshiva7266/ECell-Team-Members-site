@@ -357,10 +357,10 @@ export default function HomePage() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, scale: 1.3, y: 40, filter: "blur(8px)" }}
-            animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, scale: 0.95, y: -20, filter: "blur(4px)" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, scale: 1.02, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.98, y: -10 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="w-full flex-1 flex flex-col"
           >
             {/* ────────── HOME VIEW (Redesigned Professional Layout) ────────── */}
@@ -370,37 +370,10 @@ export default function HomePage() {
                 <section className="relative flex flex-col items-center justify-center text-center px-4 py-24 overflow-hidden min-h-[85vh]">
                   {/* Animated Background Elements */}
                   <div className="absolute inset-0 overflow-hidden">
-                    {/* Modern Gradient Blobs */}
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.4, 1],
-                        x: [0, 50, 0],
-                        y: [0, -30, 0],
-                        opacity: [0.15, 0.25, 0.15]
-                      }}
-                      transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-400/20 blur-[120px]"
-                    />
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.5, 1],
-                        x: [0, -40, 0],
-                        y: [0, 40, 0],
-                        opacity: [0.1, 0.2, 0.1]
-                      }}
-                      transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-blue-600/25 to-indigo-500/20 blur-[100px]"
-                    />
-                    <motion.div
-                      animate={{
-                        scale: [1, 1.3, 1],
-                        x: [0, 30, 0],
-                        y: [0, -20, 0],
-                        opacity: [0.08, 0.15, 0.08]
-                      }}
-                      transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-sky-400/20 to-blue-500/15 blur-[150px]"
-                    />
+                    {/* Modern Gradient Blobs (GPU Animated via CSS) */}
+                    <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-400/20 blur-[120px] animate-blob-1" />
+                    <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-blue-600/25 to-indigo-500/20 blur-[100px] animate-blob-2" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-sky-400/20 to-blue-500/15 blur-[150px] animate-blob-3" />
                     {/* Floating Particles with Multiple Colors */}
                     {[...Array(15)].map((_, i) => {
                       // Use deterministic values based on index to avoid hydration mismatch

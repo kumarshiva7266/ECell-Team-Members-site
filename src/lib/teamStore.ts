@@ -616,7 +616,7 @@ const INITIAL_MEMBERS: Member[] = [
     instagram: "https://instagram.com",
     portfolio: "",
     resumeUrl: "/resume/Kushi.pdf",
-    img: "/images/logo.jpeg",
+    img: "/images/khusi.jpeg",
     achievements: ["Kalam Space Convention 2K25", "Genesis Hackathon", "Eureka Engines 3.0", "Multiple AI Certifications with Claude"],
     isCore: false,
     memberSince: "June 2026",
@@ -877,7 +877,7 @@ const INITIAL_MEMBERS: Member[] = [
     id: "16",
     name: "Boddupelli Bala Murali",
     role: "Social Media & Influencer",
-    domain: "AI & Machine Learning",
+    domain: "Social Media & Influencer",
     dept: "CSM(AI & ML)",
     year: "2nd year",
     skills: ["Video Editing", "Content Creation", "Social Media Strategy", "Leadership", "Team Management", "Event Coordination", "Communication", "Student Engagement", "Visual Storytelling", "Platform Management", "Community Building", "Analytics"],
@@ -940,13 +940,16 @@ const INITIAL_EVENTS: EventItem[] = [
 // Service Layer
 export const TeamService = {
   subscribeMembers(callback: (members: Member[]) => void) {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("ecell_members", JSON.stringify(INITIAL_MEMBERS));
+    }
     if (db) {
       return onSnapshot(collection(db, "members"), (snapshot) => {
         const members: Member[] = [];
         snapshot.forEach((doc) => {
           members.push({ id: doc.id, ...doc.data() } as Member);
         });
-        // Always use INITIAL_MEMBERS to ensure all 18 members are shown
+        // Always use INITIAL_MEMBERS to ensure all 18 members (including Boddupelli Bala Murali under Social Media & Influencer) are shown
         callback(INITIAL_MEMBERS);
       }, () => {
         callback(INITIAL_MEMBERS);

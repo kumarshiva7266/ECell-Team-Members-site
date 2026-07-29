@@ -86,10 +86,45 @@ interface DomainGroupProps {
   delay?: number;
 }
 
+const MURALI_DEFAULT_MEMBER: Member = {
+  id: "16",
+  name: "Boddupelli Bala Murali",
+  role: "Social Media & Influencer Lead",
+  domain: "Social Media & Influencer",
+  dept: "CSM(AI & ML)",
+  year: "2nd year",
+  skills: ["Video Editing", "Content Creation", "Social Media Strategy", "Leadership", "Team Management", "Event Coordination"],
+  about: "I am Boddupelli Bala Murali, a CSE (AI & ML) student at Pallavi Engineering College. As an E-Cell Social Media & Influencer team member, I aim to promote innovation, entrepreneurship, and teamwork.",
+  email: "balu09122005@gmail.com",
+  linkedin: "https://linkedin.com",
+  github: "https://github.com",
+  instagram: "https://instagram.com",
+  portfolio: "",
+  resumeUrl: "/resume/balu.pdf",
+  img: "/images/balu.jpeg",
+  achievements: ["Served as coordinator for Spectra college event", "Contributed as coordinator in CSI-Pallavi Engineering College activities"],
+  isCore: true,
+  memberSince: "May 2026",
+  status: "Core Executive Member",
+  location: "Hyderabad, Telangana"
+};
+
 const DomainGroup: React.FC<DomainGroupProps> = ({ emoji, domainName, color, members, onSelect, delay = 0 }) => {
   const [open, setOpen] = useState(true);
   const c = COLORS[color] ?? COLORS.blue;
-  const domainMembers = members.filter(m => m.domain === domainName);
+  let domainMembers = members.filter(m => 
+    m.domain === domainName ||
+    (domainName === "Social Media & Influencer" && (
+      m.domain?.toLowerCase().includes("social") ||
+      m.name?.toLowerCase().includes("boddupelli") ||
+      m.name?.toLowerCase().includes("murali")
+    ))
+  );
+
+  if (domainName === "Social Media & Influencer" && !domainMembers.some(m => m.name.toLowerCase().includes("murali") || m.name.toLowerCase().includes("boddupelli"))) {
+    domainMembers = [...domainMembers, MURALI_DEFAULT_MEMBER];
+  }
+
 
   return (
     <motion.div

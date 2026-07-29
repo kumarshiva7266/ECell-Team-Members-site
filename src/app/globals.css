@@ -491,3 +491,53 @@ body {
   scrollbar-width: none;
 }
 
+/* GPU-Accelerated Floating Blob Animations */
+@keyframes float-blob-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate3d(40px, -20px, 0) scale(1.2);
+    opacity: 0.25;
+  }
+}
+
+@keyframes float-blob-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate3d(-30px, 30px, 0) scale(1.3);
+    opacity: 0.2;
+  }
+}
+
+@keyframes float-blob-3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.08;
+  }
+  50% {
+    transform: translate3d(20px, -15px, 0) scale(1.15);
+    opacity: 0.15;
+  }
+}
+
+.animate-blob-1 {
+  animation: float-blob-1 14s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-blob-2 {
+  animation: float-blob-2 18s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.animate-blob-3 {
+  animation: float-blob-3 22s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+

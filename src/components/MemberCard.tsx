@@ -46,7 +46,7 @@ export const MemberCard: React.FC<MemberCardProps> = ({ member, onViewProfile, i
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
+      transition={{ duration: 0.45, delay: (index % 6) * 0.04 }}
       whileHover={{ y: -8, scale: 1.02 }}
       onClick={() => onViewProfile(member)}
       className="glass-card hover:glass-card-hover rounded-[25px] p-4 sm:p-6 flex flex-col items-center text-center cursor-pointer transition-all duration-300 relative overflow-hidden group"
