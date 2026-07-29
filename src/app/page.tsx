@@ -5,7 +5,8 @@ import { motion, AnimatePresence, useScroll, useSpring, useTransform } from "fra
 import {
   Search, ChevronUp, Menu, X, Zap, Users, Calendar, Rocket,
   Trophy, ArrowDown, Star, Globe2, Building, Sparkles, TrendingUp,
-  Target, Award, Lightbulb, ArrowRight, Play, Pause, RefreshCw
+  Target, Award, Lightbulb, ArrowRight, Play, Pause, RefreshCw,
+  Home, Crown, Network, Milestone, Image, Bell, Mail
 } from "lucide-react";
 
 import { Member, TeamService } from "@/lib/teamStore";
@@ -105,15 +106,15 @@ const StatCard: React.FC<typeof STATS[number]> = ({ label, value, suffix, icon }
    NAV LINKS (Representing active views)
 ──────────────────────────────────────── */
 const NAV_LINKS = [
-  { tab: "Home",        label: "Home"       },
-  { tab: "Leadership",  label: "Core"       },
-  { tab: "Structure",   label: "Structure"  },
-  { tab: "Directory",   label: "Directory"  },
-  { tab: "Impact",      label: "Impact"     },
-  { tab: "Journey",     label: "Journey"    },
-  { tab: "Gallery",     label: "Gallery"    },
-  { tab: "Updates",     label: "Updates"    },
-  { tab: "Contact",     label: "Contact"    },
+  { tab: "Home",        label: "Home",       icon: Home },
+  { tab: "Leadership",  label: "Core",       icon: Crown },
+  { tab: "Structure",   label: "Structure",  icon: Network },
+  { tab: "Directory",   label: "Directory",  icon: Users },
+  { tab: "Impact",      label: "Impact",     icon: Trophy },
+  { tab: "Journey",     label: "Journey",    icon: Milestone },
+  { tab: "Gallery",     label: "Gallery",    icon: Image },
+  { tab: "Updates",     label: "Updates",    icon: Bell },
+  { tab: "Contact",     label: "Contact",    icon: Mail },
 ];
 
 /* ════════════════════════════════════════
@@ -254,12 +255,17 @@ export default function HomePage() {
       {/* ══════════════════════════════
           NAVBAR
       ══════════════════════════════ */}
-      <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled ? "glass-panel border-b border-white/5 shadow-2xl" : "bg-transparent"
+      {/* ══════════════════════════════
+          NAVBAR
+      ══════════════════════════════ */}
+      <nav className={`fixed left-1/2 -translate-x-1/2 z-40 transition-all duration-500 ease-out ${
+        scrolled 
+          ? "top-3 w-[95%] max-w-7xl rounded-2xl glass-panel border border-white/10 shadow-2xl py-2 px-6" 
+          : "top-0 w-full max-w-7xl rounded-none bg-transparent border-b border-transparent py-4 px-6"
       }`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-          <button onClick={() => setActiveTab("Home")} className="flex items-center gap-3 cursor-pointer">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg relative overflow-hidden">
+        <div className="w-full flex items-center justify-between h-12">
+          <button onClick={() => setActiveTab("Home")} className="flex items-center gap-3 cursor-pointer group">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/crew.png"
@@ -268,28 +274,48 @@ export default function HomePage() {
                 loading="eager"
               />
             </div>
-            <span className="font-bold text-xl text-white">E-Cell<br />Crew United</span>
+            <span className="font-extrabold text-sm md:text-base leading-none text-white tracking-wide uppercase">
+              E-Cell<br /><span className="text-[10px] text-zinc-400 font-medium tracking-widest">Crew United</span>
+            </span>
           </button>
 
-          {/* Desktop Links (Liquid Crystal Pill Buttons) */}
-          <ul className="hidden lg:flex items-center gap-2">
-            {NAV_LINKS.map(l => (
-              <li key={l.tab}>
-                <button
-                  onClick={() => {
-                    if (l.tab === "Home" || userProfile) {
-                      setActiveTab(l.tab);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    } else {
-                      setAuthModalOpen(true);
-                    }
-                  }}
-                  className={`liquid-crystal-btn cursor-pointer ${activeTab === l.tab ? "active" : ""}`}
-                >
-                  {l.label}
-                </button>
-              </li>
-            ))}
+          {/* Desktop Links (Floating Glass Pill Buttons with Sliding Background Glow) */}
+          <ul className="hidden lg:flex items-center gap-1.5 relative">
+            {NAV_LINKS.map(l => {
+              const IconComponent = l.icon;
+              const isActive = activeTab === l.tab;
+              return (
+                <li key={l.tab} className="relative">
+                  <button
+                    onClick={() => {
+                      if (l.tab === "Home" || userProfile) {
+                        setActiveTab(l.tab);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      } else {
+                        setAuthModalOpen(true);
+                      }
+                    }}
+                    className={`relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
+                      isActive 
+                        ? "text-white scale-105" 
+                        : "text-zinc-400 hover:text-white hover:scale-102"
+                    }`}
+                  >
+                    <IconComponent className={`w-4 h-4 transition-transform duration-300 ${isActive ? "text-blue-400 rotate-3 scale-110" : "text-zinc-500 group-hover:scale-110"}`} />
+                    <span>{l.label}</span>
+                    
+                    {/* Animated Sliding Background Bubble */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="navActiveTabBg"
+                        className="absolute inset-0 -z-10 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/15 to-pink-500/10 border border-white/10 shadow-[0_0_20px_rgba(139,92,246,0.15)]"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Top Right Profile / Login Actions */}
@@ -306,7 +332,7 @@ export default function HomePage() {
             {userProfile ? (
               <button
                 onClick={() => { setActiveTab("Profile"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 border border-white/20 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_15px_rgba(79,140,255,0.35)] cursor-pointer hover:scale-105 active:scale-95 transition-all overflow-hidden"
+                className="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 border border-white/20 flex items-center justify-center text-white font-bold text-sm shadow-[0_0_15px_rgba(79,140,255,0.35)] cursor-pointer hover:scale-105 active:scale-95 transition-all overflow-hidden"
                 title="Go to Profile"
               >
                 {userProfile.name ? userProfile.name.charAt(0).toUpperCase() : "U"}
@@ -314,10 +340,10 @@ export default function HomePage() {
             ) : (
               <button
                 onClick={() => setAuthModalOpen(true)}
-                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white cursor-pointer hover:scale-105 active:scale-95 transition-all shadow-md"
+                className="w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white cursor-pointer hover:scale-105 active:scale-95 transition-all shadow-md"
                 title="Login / Sign Up"
               >
-                <Users className="w-5 h-5" />
+                <Users className="w-4 h-4" />
               </button>
             )}
           </div>
@@ -790,7 +816,7 @@ export default function HomePage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {leadershipMembers
-                    .filter(m => ['Rohith', 'Shiv', 'Anshu', 'Maheswar'].some(name => m.name.includes(name)))
+                    .filter(m => ['rohith', 'shiv', 'anshu', 'maheswar'].some(name => m.name.toLowerCase().includes(name)))
                     .map((m) => (
                     <GlassCard key={m.id} onClick={() => openModal(m)} className="border-amber-500/20 hover:border-amber-500/40 shadow-2xl shadow-amber-500/10">
                       <div className="p-6 flex flex-col items-center text-center relative overflow-hidden">
@@ -1442,62 +1468,63 @@ export default function HomePage() {
       </AnimatePresence>
 
       {/* ── Mobile Bottom Floating Navbar (iPhone Gallery Style Scrubber) ── */}
-      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-40">
-        <div className="glass-panel backdrop-blur-xl bg-black/40 border border-white/10 rounded-full px-4 py-2 flex items-center justify-between shadow-2xl overflow-hidden relative">
-          <div className="flex items-center gap-2 overflow-x-auto py-1 w-full scrollbar-none snap-x snap-mandatory">
-            {NAV_LINKS.map(l => (
-              <button
-                key={l.tab}
-                onClick={() => {
-                  if (l.tab === "Home" || userProfile) {
-                    setActiveTab(l.tab);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  } else {
-                    setAuthModalOpen(true);
-                  }
-                }}
-                className={`snap-center flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
-                  activeTab === l.tab
-                    ? "bg-white/10 border border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.1)] scale-105"
-                    : "text-zinc-400 hover:text-zinc-200"
-                }`}
-              >
-                {l.tab === "Leadership" ? "Core" : l.label}
-              </button>
-            ))}
+      <div className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] max-w-md z-40">
+        <div className="glass-panel backdrop-blur-xl bg-black/50 border border-white/15 rounded-full px-3 py-2 flex items-center justify-between shadow-2xl overflow-hidden relative">
+          <div className="flex items-center gap-1.5 overflow-x-auto py-1 w-full scrollbar-none snap-x snap-mandatory">
+            {NAV_LINKS.map(l => {
+              const IconComponent = l.icon;
+              const isActive = activeTab === l.tab;
+              return (
+                <button
+                  key={l.tab}
+                  onClick={() => {
+                    if (l.tab === "Home" || userProfile) {
+                      setActiveTab(l.tab);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    } else {
+                      setAuthModalOpen(true);
+                    }
+                  }}
+                  className={`snap-center flex-shrink-0 relative z-10 flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
+                    isActive
+                      ? "text-white scale-105"
+                      : "text-zinc-400 hover:text-zinc-200"
+                  }`}
+                >
+                  <IconComponent className={`w-3.5 h-3.5 transition-transform duration-300 ${isActive ? "text-blue-400 scale-110" : "text-zinc-500"}`} />
+                  <span>{l.tab === "Leadership" ? "Core" : l.label}</span>
+
+                  {isActive && (
+                    <motion.div
+                      layoutId="mobileNavActiveTabBg"
+                      className="absolute inset-0 -z-10 rounded-full bg-white/10 border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                </button>
+              );
+            })}
 
             {userProfile?.isAdmin && (
               <button
                 onClick={() => { setActiveTab("Admin"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                className={`snap-center flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
+                className={`snap-center flex-shrink-0 relative z-10 px-3.5 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 cursor-pointer ${
                   activeTab === "Admin"
-                    ? "bg-red-500/20 border border-red-500/30 text-red-400 scale-105"
+                    ? "text-red-400 scale-105"
                     : "text-red-400/70 hover:text-red-400"
                 }`}
               >
-                Admin
+                <span>Admin</span>
+                {activeTab === "Admin" && (
+                  <motion.div
+                    layoutId="mobileNavActiveTabBg"
+                    className="absolute inset-0 -z-10 rounded-full bg-red-500/10 border border-red-500/20"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </button>
             )}
 
-            {userProfile ? (
-              <button
-                onClick={() => { setActiveTab("Profile"); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-                className={`snap-center flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 ${
-                  activeTab === "Profile"
-                    ? "bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 scale-105"
-                    : "text-emerald-400/70 hover:text-emerald-400"
-                }`}
-              >
-                Profile
-              </button>
-            ) : (
-              <button
-                onClick={() => setAuthModalOpen(true)}
-                className="snap-center flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold tracking-wide text-zinc-400 hover:text-zinc-200"
-              >
-                Login
-              </button>
-            )}
           </div>
         </div>
       </div>
