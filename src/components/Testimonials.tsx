@@ -73,7 +73,7 @@ const TESTIMONIALS: Testimonial[] = [
     id: "9",
     name: "Kushi Kumari",
     role: "Creative & Design Coordinator, Design Dept",
-    img: "/images/logo.jpeg",
+    img: "/images/khusi.jpeg",
     quote: "Crafting beautiful interactive designs, layouts, and typography grids for all E-Cell assets. Creating visual identities for events, campaigns, and digital platforms while maintaining brand consistency."
   },
   {
