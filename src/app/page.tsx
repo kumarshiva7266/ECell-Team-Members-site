@@ -1379,7 +1379,6 @@ export default function HomePage() {
                   <div className="flex items-center gap-2.5 mb-4">
                     <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden shadow-lg shadow-purple-500/30">
                       <Zap className="w-4 h-4 text-white absolute inset-0 m-auto" />
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="/images/crew.png"
                         alt=""
