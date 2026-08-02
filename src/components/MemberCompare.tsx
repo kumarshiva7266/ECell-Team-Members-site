@@ -163,7 +163,7 @@ export const MemberCompare: React.FC<MemberCompareProps> = ({
                           Overview
                         </div>
                         <p className="text-zinc-400 line-clamp-3 leading-relaxed">
-                          {member.bio || "Active E-Cell team member contributing to entrepreneurial events and leadership."}
+                          {member.about || "Active E-Cell team member contributing to entrepreneurial events and leadership."}
                         </p>
                       </div>
 

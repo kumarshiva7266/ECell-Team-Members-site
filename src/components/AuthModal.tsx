@@ -35,7 +35,21 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const getFriendlyError = (err: any) => {
-    const msg = err.message || "";
+    const code = err?.code || "";
+    const msg = err?.message || err?.toString() || "";
+
+    if (code === "auth/popup-closed-by-user" || msg.includes("auth/popup-closed-by-user")) {
+      return "Google Sign-In popup was closed before completing. Please try again.";
+    }
+    if (code === "auth/popup-blocked" || msg.includes("auth/popup-blocked")) {
+      return "Sign-in popup was blocked by your browser. Please enable popups and try again.";
+    }
+    if (code === "auth/cancelled-popup-request" || msg.includes("auth/cancelled-popup-request")) {
+      return "Sign-in request was cancelled. Please try again.";
+    }
+    if (code === "auth/account-exists-with-different-credential" || msg.includes("auth/account-exists-with-different-credential")) {
+      return "An account already exists with this email address using a different sign-in method.";
+    }
     if (msg.includes("auth/invalid-credential") || msg.includes("auth/user-not-found")) return "You don't have an account yet. Please register yourself first.";
     if (msg.includes("auth/email-already-in-use")) return "This email is already registered. Please log in.";
     if (msg.includes("auth/weak-password")) return "Password is too weak. It must be at least 6 characters.";
