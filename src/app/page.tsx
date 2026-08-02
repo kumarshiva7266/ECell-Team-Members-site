@@ -268,7 +268,7 @@ export default function HomePage() {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/images/crew.png"
+                src="/images/crew1.png"
                 alt="E-Cell Logo"
                 className="w-full h-full object-cover"
                 loading="eager"
@@ -1353,7 +1353,7 @@ export default function HomePage() {
                     <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center relative overflow-hidden shadow-lg shadow-purple-500/30">
                       <Zap className="w-4 h-4 text-white absolute inset-0 m-auto" />
                       <img
-                        src="/images/crew.png"
+                        src="/images/crew1.png"
                         alt=""
                         onError={(e) => { e.currentTarget.style.opacity = '0'; }}
                         className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 bg-[#020205]"
