@@ -113,7 +113,7 @@ export const MemberCompare: React.FC<MemberCompareProps> = ({
                     {/* Member Header */}
                     <div className="flex flex-col items-center text-center pt-2">
                       <img
-                        src={member.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300"}
+                        src={member.img || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300"}
                         alt={member.name}
                         className="w-20 h-20 rounded-2xl object-cover border-2 border-blue-500/30 shadow-lg mb-3"
                       />
