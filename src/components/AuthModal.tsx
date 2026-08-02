@@ -38,6 +38,9 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     const code = err?.code || "";
     const msg = err?.message || err?.toString() || "";
 
+    if (code === "auth/unauthorized-domain" || msg.includes("unauthorized-domain") || msg.includes("unauthorized for OAuth operations")) {
+      return "Domain 'crewunited.vercel.app' is not authorized in Firebase. Please add crewunited.vercel.app under Firebase Console -> Authentication -> Settings -> Authorized domains.";
+    }
     if (code === "auth/popup-closed-by-user" || msg.includes("auth/popup-closed-by-user")) {
       return "Google Sign-In popup was closed before completing. Please try again.";
     }
